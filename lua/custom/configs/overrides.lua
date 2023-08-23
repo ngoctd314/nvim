@@ -33,7 +33,7 @@ M.mason = {
     "typescript-language-server",
     "prettier",
 
-    -- c/cpp stuff
+    -- Go
     "gopls",
     "gofumpt"
   },
