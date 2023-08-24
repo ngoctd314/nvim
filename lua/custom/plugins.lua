@@ -43,12 +43,19 @@ local plugins = {
     lazy = false,
     config = function()
       require "custom.configs.easymotion"
-    end
+    end,
   },
   {
     "github/copilot.vim",
-    lazy = false
-  }
+    lazy = false,
+  },
+  {
+    "kylechui/nvim-surround", -- change pairs
+    lazy = false,
+    config = function()
+      require("nvim-surround").setup()
+    end,
+  },
 
   -- Install a plugin
   -- {      require "custom.configs.easy-motion"

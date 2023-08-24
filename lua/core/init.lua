@@ -50,6 +50,10 @@ opt.updatetime = 250
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append "<>[]hl"
 
+-- wrap text at the end of the line
+vim.wo.wrap = true
+vim.wo.linebreak = true
+
 g.mapleader = " "
 
 -- disable some default providers
@@ -112,5 +116,5 @@ autocmd("BufWritePost", {
 local new_cmd = vim.api.nvim_create_user_command
 
 new_cmd("NvChadUpdate", function()
-  require "nvchad.updater" ()
+  require "nvchad.updater"()
 end, {})

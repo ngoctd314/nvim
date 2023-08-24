@@ -293,7 +293,10 @@ M.nvterm = {
       end,
       "Toggle floating term",
     },
-    ["<C-k>"] = { "<cmd>wincmd k<CR>", "Go up" },
+    -- Escape terminal mode
+    ["<esc>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
+
+    -- ["<C-k>"] = { "<cmd>wincmd k<CR>", "Go up" },
     -- ["<A-h>"] = {
     --   function()
     --     require("nvterm.terminal").toggle "horizontal"
