@@ -17,6 +17,7 @@ local plugins = {
       },
     },
     config = function()
+      require "custom.configs.easymotion"
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end, -- Override to setup mason-lspconfig
@@ -39,7 +40,15 @@ local plugins = {
   },
   {
     "phaazon/hop.nvim", -- easymotion
+    lazy = false,
+    config = function()
+      require "custom.configs.easymotion"
+    end
   },
+  {
+    "github/copilot.vim",
+    lazy = false
+  }
 
   -- Install a plugin
   -- {      require "custom.configs.easy-motion"

@@ -105,21 +105,21 @@ M.comment = {
   plugin = true,
 
   -- toggle comment in both modes
-  -- n = {
-  --   ["<C-/>"] = {
-  --     function()
-  --       require("Comment.api").toggle.linewise.current()
-  --     end,
-  --     "Toggle comment",
-  --   },
-  -- },
+  n = {
+    ["<C-_>"] = {
+      function()
+        require("Comment.api").toggle.linewise.current()
+      end,
+      "Toggle comment",
+    },
+  },
 
-  -- v = {
-  --   ["<C-/>"] = {
-  --     "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-  --     "Toggle comment",
-  --   },
-  -- },
+  v = {
+    ["<C-_>"] = {
+      "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+      "Toggle comment",
+    },
+  },
 }
 
 M.lspconfig = {
@@ -403,23 +403,23 @@ M.whichkey = {
 M.blankline = {
   plugin = true,
 
-  n = {
-    ["<leader>cc"] = {
-      function()
-        local ok, start = require("indent_blankline.utils").get_current_context(
-          vim.g.indent_blankline_context_patterns,
-          vim.g.indent_blankline_use_treesitter_scope
-        )
+  -- n = {
+  --   ["<leader>cc"] = {
+  --     function()
+  --       local ok, start = require("indent_blankline.utils").get_current_context(
+  --         vim.g.indent_blankline_context_patterns,
+  --         vim.g.indent_blankline_use_treesitter_scope
+  --       )
 
-        if ok then
-          vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start, 0 })
-          vim.cmd [[normal! _]]
-        end
-      end,
+  --       if ok then
+  --         vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start, 0 })
+  --         vim.cmd [[normal! _]]
+  --       end
+  --     end,
 
-      "Jump to current context",
-    },
-  },
+  --     "Jump to current context",
+  --   },
+  -- },
 }
 
 M.gitsigns = {
