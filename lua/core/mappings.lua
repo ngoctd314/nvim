@@ -259,8 +259,7 @@ M.telescope = {
 
   n = {
     -- find
-    ["<leader>f"] = { function()
-    end, "Telescope finds" },
+    ["<leader>f"] = { function() end, "Telescope finds" },
     ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
     ["<leader>fa"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all" },
     ["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
@@ -279,7 +278,7 @@ M.telescope = {
     -- theme switcher
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
 
-    ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
+    -- ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
   },
 }
 
@@ -368,35 +367,34 @@ M.whichkey = {
     -- },
     ["gd"] = {
       function()
-        require('telescope.builtin').lsp_definitions()
+        require("telescope.builtin").lsp_definitions()
       end,
-      "Jumps to the definition"
+      "Jumps to the definition",
     },
     ["gr"] = {
       function()
-        require('telescope.builtin').lsp_references()
+        require("telescope.builtin").lsp_references()
       end,
-      "List References"
+      "List References",
     },
     ["ge"] = {
       function()
-        require('telescope.builtin').diagnostics()
+        require("telescope.builtin").diagnostics()
       end,
       "Lists Diagnostics",
     },
     ["gk"] = {
       function()
-        require('telescope.builtin').treesitter()
+        require("telescope.builtin").treesitter()
       end,
-      "Lists Function names, variables"
+      "Lists Function names, variables",
     },
     ["gm"] = {
       function()
-        require('telescope.builtin').marks()
+        require("telescope.builtin").marks()
       end,
-      "Lists all marks"
+      "Lists all marks",
     },
-
   },
 }
 
