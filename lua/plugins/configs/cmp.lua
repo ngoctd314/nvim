@@ -113,8 +113,8 @@ local options = {
   },
 }
 
-if cmp_style ~= "atom" and cmp_style ~= "atom_colored" then
-  options.window.completion.border = border "CmpBorder"
-end
+-- if cmp_style ~= "atom" and cmp_style ~= "atom_colored" then
+--   options.window.completion.border = border "CmpBorder"
+-- end
 
 return options

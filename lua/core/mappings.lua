@@ -134,28 +134,6 @@ M.lspconfig = {
     --   end,
     --   "LSP declaration",
     -- },
-
-    -- ["gd"] = {
-    --   function()
-    --     vim.lsp.buf.definition()
-    --   end,
-    --   "LSP definition",
-    -- },
-
-    -- ["K"] = {
-    --   function()
-    --     vim.lsp.buf.hover()
-    --   end,
-    --   "LSP hover",
-    -- },
-
-    -- ["gi"] = {
-    --   function()
-    --     vim.lsp.buf.implementation()
-    --   end,
-    --   "LSP implementation",
-    -- },
-
     -- ["<leader>ls"] = {
     --   function()
     --     vim.lsp.buf.signature_help()
@@ -170,25 +148,12 @@ M.lspconfig = {
     --   "LSP definition type",
     -- },
 
-    -- ["<leader>ra"] = {
+    -- ["<leader>rn"] = {
     --   function()
-    --     require("nvchad.renamer").open()
+    --     -- require("nvchad.renamer").open()
+    --     vim.lsp.buf.rename()
     --   end,
     --   "LSP rename",
-    -- },
-
-    -- ["<leader>ca"] = {
-    --   function()
-    --     vim.lsp.buf.code_action()
-    --   end,
-    --   "LSP code action",
-    -- },
-
-    -- ["gr"] = {
-    --   function()
-    --     vim.lsp.buf.references()
-    --   end,
-    --   "LSP references",
     -- },
 
     -- ["<leader>f"] = {
@@ -248,9 +213,6 @@ M.nvimtree = {
   n = {
     -- toggle
     ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
-
-    -- focus
-    -- ["<leader>e"] = { "<cmd> NvimTreeFocus <CR>", "Focus nvimtree" },
   },
 }
 
@@ -269,11 +231,11 @@ M.telescope = {
     -- ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
 
     -- git
-    ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
-    ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
+    -- ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
+    -- ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
 
     -- pick a hidden term
-    ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
+    -- ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
 
     -- theme switcher
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
@@ -295,21 +257,6 @@ M.nvterm = {
     },
     -- Escape terminal mode
     ["<esc>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
-
-    -- ["<C-k>"] = { "<cmd>wincmd k<CR>", "Go up" },
-    -- ["<A-h>"] = {
-    --   function()
-    --     require("nvterm.terminal").toggle "horizontal"
-    --   end,
-    --   "Toggle horizontal term",
-    -- },
-
-    -- ["<A-v>"] = {
-    --   function()
-    --     require("nvterm.terminal").toggle "vertical"
-    --   end,
-    --   "Toggle vertical term",
-    -- },
   },
 
   n = {
@@ -320,34 +267,6 @@ M.nvterm = {
       end,
       "Toggle floating term",
     },
-    -- ["<A-h>"] = {
-    --   function()
-    --     require("nvterm.terminal").toggle "horizontal"
-    --   end,
-    --   "Toggle horizontal term",
-    -- },
-
-    -- ["<A-v>"] = {
-    --   function()
-    --     require("nvterm.terminal").toggle "vertical"
-    --   end,
-    --   "Toggle vertical term",
-    -- },
-
-    -- new
-    -- ["<leader>h"] = {
-    --   function()
-    --     require("nvterm.terminal").new "horizontal"
-    --   end,
-    --   "New horizontal term",
-    -- },
-
-    -- ["<leader>v"] = {
-    --   function()
-    --     require("nvterm.terminal").new "vertical"
-    --   end,
-    --   "New vertical term",
-    -- },
   },
 }
 
@@ -397,6 +316,12 @@ M.whichkey = {
         require("telescope.builtin").marks()
       end,
       "Lists all marks",
+    },
+    ["<leader>rn"] = {
+      function()
+        vim.lsp.buf.rename()
+      end,
+      "LSP rename",
     },
   },
 }
