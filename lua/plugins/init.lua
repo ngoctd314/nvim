@@ -32,10 +32,10 @@ local default_plugins = {
           type_opts = {
             float = {
               relative = "editor",
-              row = 0.15,
-              col = 0.1,
-              width = 0.8,
-              height = 0.7,
+              col = 0.05,
+              width = 0.9,
+              row = 0.1,
+              height = 0.8,
               border = "single",
             },
             horizontal = { location = "rightbelow", split_ratio = 0.3 },
