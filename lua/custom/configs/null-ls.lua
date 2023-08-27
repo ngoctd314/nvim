@@ -15,6 +15,8 @@ local sources = {
   b.formatting.goimports,
   b.formatting.golines,
 }
+
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local on_attach = function(client, bufnr)
   if client.supports_method "textDocument/formatting" then
     vim.api.nvim_clear_autocmds {
@@ -31,12 +33,14 @@ local on_attach = function(client, bufnr)
   end
 end
 
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup {
   debug = true,
   sources = sources,
   on_attach = on_attach,
 }
+
+vim.g.go_fmt_command = "golines"
+vim.g.go_fmt_options = { golines = "-m 30" }
 
 -- require("hop").setup {
 --   -- keys = 'etovxqpdygfblzhckisuran'
