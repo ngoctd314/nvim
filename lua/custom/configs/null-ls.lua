@@ -13,7 +13,7 @@ local sources = {
   -- Go
   b.formatting.gofumpt,
   b.formatting.goimports,
-  b.formatting.golines,
+  -- b.formatting.golines,
 }
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local on_attach = function(client, bufnr)
