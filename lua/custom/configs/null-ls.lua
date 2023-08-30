@@ -9,8 +9,8 @@ local sources = {
   b.formatting.stylua,
 
   -- Go
-  b.formatting.gofumpt,
-  b.formatting.goimports,
+  b.formatting.gofmt.with { filetypes = { "go" } },
+  b.formatting.goimports.with { filetypes = { "go" } },
   -- b.formatting.golines,
 
   -- Javascript
