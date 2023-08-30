@@ -5,6 +5,3 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
--- vim.g.go_fmt_options = {
---   golines = "-m 130",
--- }

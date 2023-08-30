@@ -1,9 +1,7 @@
 local null_ls = require "null-ls"
-
 local b = null_ls.builtins
 
 local sources = {
-
   -- webdev stuff
   b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
 
@@ -14,6 +12,14 @@ local sources = {
   b.formatting.gofumpt,
   b.formatting.goimports,
   -- b.formatting.golines,
+
+  -- Javascript
+
+  -- Json
+
+  -- Yaml
+
+  -- Markdown
 }
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local on_attach = function(client, bufnr)
@@ -37,14 +43,3 @@ null_ls.setup {
   sources = sources,
   on_attach = on_attach,
 }
-
--- vim.g.go_fmt_command = "golines"
--- vim.g.go_fmt_options = { golines = "-m 30" }
-
--- require("hop").setup {
---   -- keys = 'etovxqpdygfblzhckisuran'
---   keys = "qwertyuiopasdfghjklzxcvbnm",
--- }
-
--- -- map navigation
--- vim.api.nvim_set_keymap("n", "s", ":HopChar1<CR>", { noremap = true })

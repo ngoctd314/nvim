@@ -4,4 +4,4 @@ require("hop").setup {
 }
 
 -- map navigation
-vim.api.nvim_set_keymap("n", "s", ":HopChar1<CR>", { noremap = true })
+vim.api.nvim_set_keymap("n", "s", "ma:HopChar1<CR>", { noremap = true })
