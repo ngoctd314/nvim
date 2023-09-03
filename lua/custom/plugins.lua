@@ -56,6 +56,13 @@ local plugins = {
       require("nvim-surround").setup()
     end,
   },
+  {
+    "nvim-telescope/telescope-media-files.nvim",
+    lazy = false,
+    config = function()
+      require "custom.configs.telescope_ext"
+    end,
+  },
 
   -- Install a plugin
   -- {      require "custom.configs.easy-motion"

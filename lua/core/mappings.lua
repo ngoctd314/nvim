@@ -221,13 +221,13 @@ M.telescope = {
 
   n = {
     -- find
-    ["<leader>f"] = { function() end, "Telescope finds" },
+    ["f"] = { function() end, "Telescope finds" },
     -- ["<leader>ff"] = { "<cmd> Telescope find_files <CR>", "Find files" },
-    ["<leader>ff"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all files" },
-    ["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
-    ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
-    ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
-    ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
+    ["ff"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all files" },
+    ["fg"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
+    ["fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
+    ["fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
+    ["fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
     -- ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
 
     -- git
@@ -261,6 +261,16 @@ M.nvterm = {
 
   n = {
     -- toggle in normal mode
+    ["<C-t>"] = {
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "Toggle floating term",
+    },
+  },
+
+  i = {
+    -- toggle in insert mode
     ["<C-t>"] = {
       function()
         require("nvterm.terminal").toggle "float"
