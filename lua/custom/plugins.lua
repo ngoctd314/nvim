@@ -63,6 +63,14 @@ local plugins = {
       require "custom.configs.telescope_ext"
     end,
   },
+  {
+    "olexsmir/gopher.nvim",
+    lazy = false,
+    ft = "go",
+    config = function()
+      require "custom.configs.gopher"
+    end,
+  },
 
   -- Install a plugin
   -- {      require "custom.configs.easy-motion"
