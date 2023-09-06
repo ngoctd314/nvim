@@ -31,7 +31,7 @@ opt.mouse = "a"
 opt.number = true
 opt.relativenumber = true
 opt.numberwidth = 2
-opt.ruler = false
+-- opt.ruler = false
 opt.colorcolumn = "120"
 
 -- disable nvim intro
