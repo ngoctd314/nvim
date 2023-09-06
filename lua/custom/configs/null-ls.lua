@@ -3,23 +3,18 @@ local b = null_ls.builtins
 
 local sources = {
   -- webdev stuff
-  b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } }, -- so prettier works only on these filetypes
-
+  b.formatting.prettier.with { filetypes = { "html", "markdown", "css" } },
   -- Lua
-  b.formatting.stylua,
-
+  b.formatting.stylua.with { filetypes = { "lua" } },
   -- Go
-  b.formatting.gofmt.with { filetypes = { "go" } },
+  b.formatting.gofumpt.with { filetypes = { "go" } },
   b.formatting.goimports.with { filetypes = { "go" } },
   -- b.formatting.golines,
-
+  -- SQL
+  b.formatting.sql_formatter.with { filetypes = { "sql" } },
   -- Javascript
-
   -- Json
-
   -- Yaml
-
-  -- Markdown
 }
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local on_attach = function(client, bufnr)

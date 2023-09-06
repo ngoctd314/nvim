@@ -280,6 +280,16 @@ M.nvterm = {
       "Toggle floating term",
     },
   },
+
+  v = {
+    -- toggle in visual mode
+    ["<C-t>"] = {
+      function()
+        require("nvterm.terminal").toggle "float"
+      end,
+      "Toggle floating term",
+    },
+  },
 }
 
 M.whichkey = {
