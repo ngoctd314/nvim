@@ -431,13 +431,6 @@ M.gitsigns = {
       "Preview hunk",
     },
 
-    -- ["<leader>gb"] = {
-    --   function()
-    --     package.loaded.gitsigns.blame_line()
-    --   end,
-    --   "Blame line",
-    -- },
-
     ["<leader>td"] = {
       function()
         require("gitsigns").toggle_deleted()
