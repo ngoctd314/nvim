@@ -16,6 +16,7 @@ M.override = {
 ---@type HLTable
 M.add = {
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
+  GitSignsCurrentLineBlame = { fg = "#707070" },
 }
 
 return M
