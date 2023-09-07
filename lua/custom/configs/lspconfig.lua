@@ -21,6 +21,7 @@ lspconfig.gopls.setup {
     },
   },
 }
+
 -- Sql
 -- lspconfig.sqlls.setup {
 --   on_attach = on_attach,
@@ -28,6 +29,8 @@ lspconfig.gopls.setup {
 --   cmd = { "sqlls" },
 --   filetypes = { "sql" },
 -- }
+
+-- Json
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer

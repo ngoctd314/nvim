@@ -12,8 +12,9 @@ local sources = {
   -- b.formatting.golines,
   -- SQL
   b.formatting.sql_formatter.with { filetypes = { "sql" } },
-  -- Javascript
   -- Json
+  b.formatting.jq.with { filetypes = { "json" } },
+  -- Javascript
   -- Yaml
 }
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
