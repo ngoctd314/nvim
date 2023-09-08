@@ -36,7 +36,7 @@ local default_plugins = {
               width = 0.9,
               row = 0.1,
               height = 0.8,
-              border = "single",
+              border = "none",
             },
             horizontal = { location = "rightbelow", split_ratio = 0.3 },
             vertical = { location = "rightbelow", split_ratio = 0.5 },

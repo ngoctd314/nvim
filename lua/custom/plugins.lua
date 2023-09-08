@@ -20,7 +20,7 @@ local plugins = {
       require "custom.configs.easymotion"
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
-    end, -- Override to setup mason-lspconfig
+    end, -- Override to setup mason-lsp-config
   },
 
   -- override plugin configs

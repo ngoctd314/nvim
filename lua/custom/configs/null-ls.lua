@@ -7,7 +7,7 @@ local sources = {
   -- Lua
   b.formatting.stylua.with { filetypes = { "lua" } },
   -- Go
-  b.formatting.gofumpt.with { filetypes = { "go" } },
+  b.formatting.gofmt.with { filetypes = { "go" } },
   b.formatting.goimports.with { filetypes = { "go" } },
   -- b.formatting.golines,
   -- SQL

@@ -22,14 +22,6 @@ lspconfig.gopls.setup {
   },
 }
 
--- Sql
--- lspconfig.sqlls.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
---   cmd = { "sqlls" },
---   filetypes = { "sql" },
--- }
-
 -- Json
 
 -- Use LspAttach autocommand to only map the following keys
