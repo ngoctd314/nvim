@@ -6,11 +6,8 @@ local autocmd = vim.api.nvim_create_autocmd
 --   command = "tabdo wincmd =",
 -- })
 --
--- vim.cmd [[
---   au BufWinLeave * silent mkview
---   au BufWinEnter * silent loadview
--- ]]
 
+-- auto fold
 autocmd("BufWinLeave", {
   pattern = "*",
   command = "silent! mkview",

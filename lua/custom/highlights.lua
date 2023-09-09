@@ -10,7 +10,11 @@ M.override = {
     italic = true,
   },
   CursorLine = { bg = "#353342" },
-  -- ColorColumn = { bg = "#302C39" },
+  NormalFloat = { bg = "#181825" },
+  ColorColumn = { bg = "#222235" },
+  Normal = { fg = "#c6c8d1", bg = "#181825" },
+  NvimTreeNormal = { fg = "#c6c8d1", bg = "#1e1e2e" },
+  NvimTreeNormalNC = { fg = "#c6c8d1", bg = "#1e1e2e" },
 }
 
 ---@type HLTable
