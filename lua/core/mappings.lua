@@ -24,14 +24,14 @@ M.general = {
     ["<C-k>"] = { "<C-w>k", "Window up" },
 
     -- setting
-    ["<leader>s"] = { function() end, "Set" },
-    ["<leader>sc"] = { "<cmd>set cc=120<cr>", "Set Colorcolumn" },
-
-    ["<leader>st"] = { function() end, "Toggle" },
-    ["<leader>stn"] = { "<cmd>set nu! rnu!<cr>", "Toggle Number" },
-
-    ["<leader>sn"] = { "<cmd>set cc=0<cr>", "Set No" },
-    ["<leader>snc"] = { "<cmd>set cc=0<cr>", "Set No Colorcolumn" },
+    -- ["<leader>s"] = { function() end, "Set" },
+    -- ["<leader>sc"] = { "<cmd>set cc=120<cr>", "Set Colorcolumn" },
+    --
+    -- ["<leader>st"] = { function() end, "Toggle" },
+    -- ["<leader>stn"] = { "<cmd>set nu! rnu!<cr>", "Toggle Number" },
+    --
+    -- ["<leader>sn"] = { "<cmd>set cc=0<cr>", "Set No" },
+    -- ["<leader>snc"] = { "<cmd>set cc=0<cr>", "Set No Colorcolumn" },
 
     -- save
     -- ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
@@ -315,23 +315,29 @@ M.whichkey = {
       end,
       "Jumps to the definition",
     },
+    ["gi"] = {
+      function()
+        require("telescope.builtin").lsp_implementations()
+      end,
+      "Jumps to the implementations",
+    },
     ["gr"] = {
       function()
         require("telescope.builtin").lsp_references()
       end,
-      "List References",
+      "List references",
     },
     ["ge"] = {
       function()
         require("telescope.builtin").diagnostics()
       end,
-      "Lists Diagnostics",
+      "Lists diagnostics",
     },
-    ["gk"] = {
+    ["gt"] = {
       function()
-        require("telescope.builtin").treesitter()
+        require("telescope.builtin").lsp_document_symbols()
       end,
-      "Lists Function names, variables",
+      "Lists document symbols",
     },
     ["gm"] = {
       function()
