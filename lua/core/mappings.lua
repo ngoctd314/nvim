@@ -22,6 +22,7 @@ M.general = {
     ["<C-l>"] = { "<C-w>l", "Window right" },
     ["<C-j>"] = { "<C-w>j", "Window down" },
     ["<C-k>"] = { "<C-w>k", "Window up" },
+    ["Q"] = { "q", "macro" },
 
     -- setting
     -- ["<leader>s"] = { function() end, "Set" },

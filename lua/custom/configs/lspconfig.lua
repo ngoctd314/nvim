@@ -44,7 +44,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
     if client.server_capabilities.codeActionProvider then
       -- Selects a code action available at the current cursor position.
-      vim.keymap.set("n", "Q", vim.lsp.buf.code_action, opts)
+      vim.keymap.set("n", "q", vim.lsp.buf.code_action, opts)
     end
   end,
 })
