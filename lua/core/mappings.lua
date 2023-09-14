@@ -22,7 +22,13 @@ M.general = {
     ["<C-l>"] = { "<C-w>l", "Window right" },
     ["<C-j>"] = { "<C-w>j", "Window down" },
     ["<C-k>"] = { "<C-w>k", "Window up" },
-    ["Q"] = { "q", "macro" },
+    ["<leader>q"] = {
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      "Quick fix",
+    },
+    ["*"] = { "*N", "Highlights" },
 
     -- setting
     -- ["<leader>s"] = { function() end, "Set" },
