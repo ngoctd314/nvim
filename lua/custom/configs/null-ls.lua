@@ -14,11 +14,17 @@ local sources = {
   b.formatting.sql_formatter.with { filetypes = { "sql" } },
   -- Json
   b.formatting.jq.with { filetypes = { "json" } },
+  -- Python
+  -- b.formatting.black.with { filetypes = { "python" } },
+  -- b.diagnostics.mypy.with { filetypes = { "python" } },
+  -- b.diagnostics.ruff.with { filetypes = { "python" } },
+
   -- Javascript
   -- Yaml
 }
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local on_attach = function(client, bufnr)
+  -- Format on save
   if client.supports_method "textDocument/formatting" then
     vim.api.nvim_clear_autocmds {
       group = augroup,
