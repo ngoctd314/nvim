@@ -318,36 +318,42 @@ M.whichkey = {
     -- },
     ["gd"] = {
       function()
+        vim.cmd.normal "ma"
         require("telescope.builtin").lsp_definitions()
       end,
       "Jumps to the definition",
     },
     ["gi"] = {
       function()
+        vim.cmd.normal "ma"
         require("telescope.builtin").lsp_implementations()
       end,
       "Jumps to the implementations",
     },
     ["gr"] = {
       function()
+        vim.cmd.normal "ma"
         require("telescope.builtin").lsp_references()
       end,
       "List references",
     },
     ["ge"] = {
       function()
+        vim.cmd.normal "ma"
         require("telescope.builtin").diagnostics()
       end,
       "Lists diagnostics",
     },
     ["gt"] = {
       function()
+        vim.cmd.normal "ma"
         require("telescope.builtin").lsp_document_symbols()
       end,
       "Lists document symbols",
     },
     ["gm"] = {
       function()
+        vim.cmd.normal "ma"
         require("telescope.builtin").marks()
       end,
       "Lists all marks",
@@ -360,6 +366,7 @@ M.whichkey = {
     },
     ["[d"] = {
       function()
+        vim.cmd.normal "ma"
         vim.diagnostic.goto_prev { float = { border = "rounded" } }
       end,
       "Goto prev",
@@ -367,6 +374,7 @@ M.whichkey = {
 
     ["]d"] = {
       function()
+        vim.cmd.normal "ma"
         vim.diagnostic.goto_next { float = { border = "rounded" } }
       end,
       "Goto next",
