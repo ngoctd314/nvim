@@ -6,3 +6,4 @@ Must config following function
 - Improve go.mod
 - Clickable stack trace
 - Global bookmark
+- Debug
