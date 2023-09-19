@@ -22,7 +22,13 @@ M.general = {
     ["<C-l>"] = { "<C-w>l", "Window right" },
     ["<C-j>"] = { "<C-w>j", "Window down" },
     ["<C-k>"] = { "<C-w>k", "Window up" },
-    ["Q"] = { "q", "macro" },
+    ["<leader>q"] = {
+      function()
+        vim.lsp.buf.code_action()
+      end,
+      "Quick fix",
+    },
+    ["*"] = { "*N", "Highlights" },
 
     -- setting
     -- ["<leader>s"] = { function() end, "Set" },
@@ -312,36 +318,42 @@ M.whichkey = {
     -- },
     ["gd"] = {
       function()
+        vim.cmd.normal "ma"
         require("telescope.builtin").lsp_definitions()
       end,
       "Jumps to the definition",
     },
     ["gi"] = {
       function()
+        vim.cmd.normal "ma"
         require("telescope.builtin").lsp_implementations()
       end,
       "Jumps to the implementations",
     },
     ["gr"] = {
       function()
+        vim.cmd.normal "ma"
         require("telescope.builtin").lsp_references()
       end,
       "List references",
     },
     ["ge"] = {
       function()
+        vim.cmd.normal "ma"
         require("telescope.builtin").diagnostics()
       end,
       "Lists diagnostics",
     },
     ["gt"] = {
       function()
+        vim.cmd.normal "ma"
         require("telescope.builtin").lsp_document_symbols()
       end,
       "Lists document symbols",
     },
     ["gm"] = {
       function()
+        vim.cmd.normal "ma"
         require("telescope.builtin").marks()
       end,
       "Lists all marks",
@@ -354,6 +366,7 @@ M.whichkey = {
     },
     ["[d"] = {
       function()
+        vim.cmd.normal "ma"
         vim.diagnostic.goto_prev { float = { border = "rounded" } }
       end,
       "Goto prev",
@@ -361,6 +374,7 @@ M.whichkey = {
 
     ["]d"] = {
       function()
+        vim.cmd.normal "ma"
         vim.diagnostic.goto_next { float = { border = "rounded" } }
       end,
       "Goto next",

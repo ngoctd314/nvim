@@ -18,6 +18,7 @@ M.override = {
   NvimTreeNormal = { fg = "#c6c8d1", bg = "#1e1e2e" },
   NvimTreeNormalNC = { fg = "#c6c8d1", bg = "#1e1e2e" },
   NvimTreeWinSeparator = { fg = "#1e1e2e", bg = "#1e1e2e" },
+  Search = { fg = "#141414", bg = "#fab387" },
   -- StatusLine = { bg = "#ffffff" },
 
   -- StatusLine = { bg = "#FFFFFF", fg = "#FFFFFF" },

@@ -22,7 +22,12 @@ lspconfig.gopls.setup {
   },
 }
 
--- Json
+-- Python
+lspconfig.pyright.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "python" },
+}
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -44,7 +49,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end
     if client.server_capabilities.codeActionProvider then
       -- Selects a code action available at the current cursor position.
-      vim.keymap.set("n", "q", vim.lsp.buf.code_action, opts)
+      -- vim.keymap.set("n", "<leader>q", vim.lsp.buf.code_action, opts)
     end
   end,
 })
