@@ -340,10 +340,12 @@ M.whichkey = {
     },
     ["ge"] = {
       function()
-        vim.cmd.normal "ma"
-        require("telescope.builtin").diagnostics()
+        -- vim.cmd.normal "ma"
+        vim.cmd "TroubleToggle"
+        -- require("telescope.builtin").diagnostics()
       end,
-      "Lists diagnostics",
+      -- "Lists diagnostics",
+      "Trouble toggle",
     },
     ["gt"] = {
       function()

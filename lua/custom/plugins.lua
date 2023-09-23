@@ -55,7 +55,7 @@ local plugins = {
   },
   {
     "github/copilot.vim",
-    lazy = false,
+    lazy = true,
   },
   {
     "kylechui/nvim-surround", -- change pairs
@@ -77,6 +77,14 @@ local plugins = {
     ft = "go",
     config = function()
       require "custom.configs.gopher"
+    end,
+  },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    lazy = false,
+    config = function()
+      require "custom.configs.trouble"
     end,
   },
 
