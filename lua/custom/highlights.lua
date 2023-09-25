@@ -19,6 +19,7 @@ M.override = {
   NvimTreeNormalNC = { fg = "#c6c8d1", bg = "#1e1e2e" },
   NvimTreeWinSeparator = { fg = "#1e1e2e", bg = "#1e1e2e" },
   Search = { fg = "#141414", bg = "#fab387" },
+
   -- StatusLine = { bg = "#ffffff" },
 
   -- StatusLine = { bg = "#FFFFFF", fg = "#FFFFFF" },
@@ -39,6 +40,8 @@ M.override = {
 M.add = {
   NvimTreeOpenedFolderName = { fg = "green", bold = true },
   GitSignsCurrentLineBlame = { fg = "#707070" },
+  TroubleNormal = { fg = "#c6c8d1", bg = "#181825" },
+  TroubleText = { fg = "#c6c8d1", bg = "" },
 }
 
 return M

@@ -260,6 +260,7 @@ M.nvterm = {
       end,
       "Toggle floating term",
     },
+    -- 				:map gf :e <cfile><CR>
   },
 
   i = {
@@ -323,10 +324,12 @@ M.whichkey = {
     },
     ["ge"] = {
       function()
-        vim.cmd.normal "ma"
-        require("telescope.builtin").diagnostics()
+        -- vim.cmd.normal "ma"
+        vim.cmd "TroubleToggle"
+        -- require("telescope.builtin").diagnostics()
       end,
-      "Lists diagnostics",
+      -- "Lists diagnostics",
+      "Trouble toggle",
     },
     ["gt"] = {
       function()
@@ -357,7 +360,7 @@ M.whichkey = {
     ["[d"] = {
       function()
         vim.cmd.normal "ma"
-        vim.diagnostic.goto_prev { float = { border = "rounded" } }
+        vim.diagnostic.goto_prev { float = { border = "single" } }
       end,
       "Goto prev",
     },
@@ -365,7 +368,7 @@ M.whichkey = {
     ["]d"] = {
       function()
         vim.cmd.normal "ma"
-        vim.diagnostic.goto_next { float = { border = "rounded" } }
+        vim.diagnostic.goto_next { float = { border = "single" } }
       end,
       "Goto next",
     },
@@ -375,23 +378,23 @@ M.whichkey = {
 M.blankline = {
   plugin = true,
 
-  -- n = {
-  --   ["<leader>cc"] = {
-  --     function()
-  --       local ok, start = require("indent_blankline.utils").get_current_context(
-  --         vim.g.indent_blankline_context_patterns,
-  --         vim.g.indent_blankline_use_treesitter_scope
-  --       )
+  n = {
+    ["<leader>cc"] = {
+      function()
+        local ok, start = require("indent_blankline.utils").get_current_context(
+          vim.g.indent_blankline_context_patterns,
+          vim.g.indent_blankline_use_treesitter_scope
+        )
 
-  --       if ok then
-  --         vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start, 0 })
-  --         vim.cmd [[normal! _]]
-  --       end
-  --     end,
+        if ok then
+          vim.api.nvim_win_set_cursor(vim.api.nvim_get_current_win(), { start, 0 })
+          vim.cmd [[normal! _]]
+        end
+      end,
 
-  --     "Jump to current context",
-  --   },
-  -- },
+      "Jump to current context",
+    },
+  },
 }
 
 M.gitsigns = {
