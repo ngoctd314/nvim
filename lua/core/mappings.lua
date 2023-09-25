@@ -173,20 +173,6 @@ M.lspconfig = {
     --   "Floating diagnostic",
     -- },
 
-    -- ["[d"] = {
-    --   function()
-    --     vim.diagnostic.goto_prev { float = { border = "rounded" } }
-    --   end,
-    --   "Goto prev",
-    -- },
-
-    -- ["]d"] = {
-    --   function()
-    --     vim.diagnostic.goto_next { float = { border = "rounded" } }
-    --   end,
-    --   "Goto next",
-    -- },
-
     -- ["<leader>q"] = {
     --   function()
     --     vim.diagnostic.setloclist()
@@ -242,14 +228,12 @@ M.telescope = {
     -- git
     -- ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
     -- ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
-
+    --
     -- pick a hidden term
     -- ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
 
     -- theme switcher
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
-
-    -- ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
   },
 }
 
@@ -365,6 +349,12 @@ M.whichkey = {
         vim.lsp.buf.rename()
       end,
       "LSP rename",
+    },
+    ["<leader>h"] = {
+      function()
+        vim.cmd "nohl"
+      end,
+      "No highlight",
     },
     ["[d"] = {
       function()

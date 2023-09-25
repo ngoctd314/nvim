@@ -24,7 +24,7 @@ require("trouble").setup {
     toggle_mode = "m", -- toggle between "workspace" and "document" diagnostics mode
     switch_severity = "s", -- switch "diagnostics" severity filter level to HINT / INFO / WARN / ERROR
     toggle_preview = "P", -- toggle auto_preview
-    hover = "K", -- opens a small popup with the full multiline message
+    hover = "S", -- opens a small popup with the full multiline message
     preview = "p", -- preview the diagnostic location
     open_code_href = "c", -- if present, open a URI with more information about the diagnostic error
     close_folds = { "zM", "zm" }, -- close all folds
@@ -45,11 +45,11 @@ require("trouble").setup {
   include_declaration = { "lsp_references", "lsp_implementations", "lsp_definitions" }, -- for the given modes, include the declaration of the current symbol in the results
   signs = {
     -- icons / text used for a diagnostic
-    error = "",
-    warning = "",
-    hint = "",
-    information = "",
-    other = "",
+    error = "",
+    warning = "",
+    hint = "󰌵",
+    information = "",
+    other = "",
   },
   use_diagnostic_signs = false, -- enabling this will use the signs defined in your lsp client
 }

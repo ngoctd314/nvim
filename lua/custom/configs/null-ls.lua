@@ -15,7 +15,7 @@ local sources = {
   -- Json
   b.formatting.jq.with { filetypes = { "json" } },
   -- Python
-  -- b.formatting.black.with { filetypes = { "python" } },
+  b.formatting.black.with { filetypes = { "python" } },
   -- b.diagnostics.mypy.with { filetypes = { "python" } },
   -- b.diagnostics.ruff.with { filetypes = { "python" } },
 
