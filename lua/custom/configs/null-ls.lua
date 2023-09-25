@@ -20,6 +20,7 @@ local sources = {
   -- b.diagnostics.ruff.with { filetypes = { "python" } },
 
   -- Javascript
+  b.formatting.prettier.with { filetypes = { "javascript" } },
   -- Yaml
 }
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

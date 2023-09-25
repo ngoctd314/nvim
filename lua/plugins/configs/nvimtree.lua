@@ -1,4 +1,21 @@
+local function attach(bufnr)
+  local api = require "nvim-tree.api"
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  -- default mappings
+  api.config.mappings.default_on_attach(bufnr)
+
+  -- custom mappings
+  vim.keymap.set("n", "<C-t>", function()
+    require("nvterm.terminal").toggle "float"
+  end, opts "Up")
+end
+
 local options = {
+  on_attach = attach,
   filters = {
     dotfiles = false,
     exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
@@ -20,6 +37,13 @@ local options = {
     side = "left",
     width = 40,
     preserve_window_proportions = true,
+    number = false,
+    relativenumber = false,
+    signcolumn = "yes",
+    -- mappings = {
+    --   custom_only = true,
+    --   list = list,
+    -- },
   },
   git = {
     enable = false,
@@ -54,14 +78,6 @@ local options = {
         default = "",
         symlink = "",
         folder = {
-          -- default = "",
-          -- empty = "",
-          -- empty_open = "",
-          -- open = "",
-          -- symlink = "",
-          -- symlink_open = "",
-          -- arrow_open = "",
-          -- arrow_closed = "",
           default = "",
           empty = "",
           empty_open = "",

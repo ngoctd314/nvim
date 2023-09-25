@@ -29,6 +29,17 @@ lspconfig.pyright.setup {
   filetypes = { "python" },
 }
 
+-- Javascript
+lspconfig.tsserver.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    },
+  },
+}
+
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd("LspAttach", {
