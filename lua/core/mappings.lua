@@ -31,12 +31,9 @@ M.general = {
     ["*"] = { "*N", "Highlights" },
 
     -- setting
-    -- ["<leader>s"] = { function() end, "Set" },
+    ["<leader>s"] = { function() end, "Set" },
     -- ["<leader>sc"] = { "<cmd>set cc=120<cr>", "Set Colorcolumn" },
-    --
-    -- ["<leader>st"] = { function() end, "Toggle" },
-    -- ["<leader>stn"] = { "<cmd>set nu! rnu!<cr>", "Toggle Number" },
-    --
+    ["<leader>sn"] = { "<cmd>set nu! rnu!<cr>", "Toggle number" },
     -- ["<leader>sn"] = { "<cmd>set cc=0<cr>", "Set No" },
     -- ["<leader>snc"] = { "<cmd>set cc=0<cr>", "Set No Colorcolumn" },
 
@@ -244,9 +241,21 @@ M.nvterm = {
     -- toggle in terminal mode
     ["<C-t>"] = {
       function()
-        require("nvterm.terminal").toggle "float"
+        require("nvterm.terminal").toggle "horizontal"
       end,
       "Toggle floating term",
+    },
+    ["<C-j>"] = {
+      function()
+        vim.cmd "wincmd j"
+      end,
+      "Window down",
+    },
+    ["<C-k>"] = {
+      function()
+        vim.cmd "wincmd k"
+      end,
+      "Window up",
     },
     -- Escape terminal mode
     ["<esc>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
@@ -256,7 +265,7 @@ M.nvterm = {
     -- toggle in normal mode
     ["<C-t>"] = {
       function()
-        require("nvterm.terminal").toggle "float"
+        require("nvterm.terminal").toggle "horizontal"
       end,
       "Toggle floating term",
     },
@@ -266,7 +275,7 @@ M.nvterm = {
     -- toggle in insert mode
     ["<C-t>"] = {
       function()
-        require("nvterm.terminal").toggle "float"
+        require("nvterm.terminal").toggle "horizontal"
       end,
       "Toggle floating term",
     },
@@ -276,7 +285,7 @@ M.nvterm = {
     -- toggle in visual mode
     ["<C-t>"] = {
       function()
-        require("nvterm.terminal").toggle "float"
+        require("nvterm.terminal").toggle "horizontal"
       end,
       "Toggle floating term",
     },

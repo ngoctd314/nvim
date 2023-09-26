@@ -10,7 +10,7 @@ local function attach(bufnr)
 
   -- custom mappings
   vim.keymap.set("n", "<C-t>", function()
-    require("nvterm.terminal").toggle "float"
+    -- require("nvterm.terminal").toggle "horizontal"
   end, opts "Up")
 end
 
@@ -21,7 +21,7 @@ local options = {
     exclude = { vim.fn.stdpath "config" .. "/lua/custom" },
   },
   diagnostics = {
-    enable = true,
+    enable = false,
   },
   disable_netrw = true,
   hijack_netrw = true,
@@ -40,10 +40,6 @@ local options = {
     number = false,
     relativenumber = false,
     signcolumn = "yes",
-    -- mappings = {
-    --   custom_only = true,
-    --   list = list,
-    -- },
   },
   git = {
     enable = false,
