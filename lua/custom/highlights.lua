@@ -19,21 +19,6 @@ M.override = {
   NvimTreeNormalNC = { fg = "#c6c8d1", bg = "#1e1e2e" },
   NvimTreeWinSeparator = { fg = "#1e1e2e", bg = "#1e1e2e" },
   Search = { fg = "#141414", bg = "#fab387" },
-
-  -- StatusLine = { bg = "#ffffff" },
-
-  -- StatusLine = { bg = "#FFFFFF", fg = "#FFFFFF" },
-  -- StatusLineMode = { bg = "#FFFFFF", fg = "#FFFFFF" },
-  -- St_LspInfo = { bg = "#FFFFFF", fg = "#FFFFFF" },
-  -- St_TerminalMode = { bg = "#FFFFFF", fg = "#FFFFFF" },
-  -- StatusLineNC = { bg = "#181825" },
-  -- StatusLineMode = { fg = "#c6c8d1", bg = "#181825" },
-  -- St_NormalMode = { fg = "#c6c8d1", bg = "#181825" },
-  -- St_EmptySpace = { bg = "#181825" },
-  -- St_EmptySpace2 = { bg = "#181825" },
-  -- StatusLineMode = { fg = "#c6c8d1", bg = "#181825" },
-  -- StatusLine = { bg = "#181825" },
-  -- StatusLineNC = { bg = "#181825" },
 }
 
 ---@type HLTable

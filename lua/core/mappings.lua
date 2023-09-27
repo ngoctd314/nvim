@@ -4,10 +4,6 @@ local M = {}
 
 M.general = {
   i = {
-    -- go to  beginning and end
-    -- ["<C-b>"] = { "<ESC>^i", "Beginning of line" },
-    -- ["<C-e>"] = { "<End>", "End of line" },
-
     -- navigate within insert mode
     ["<C-h>"] = { "<Left>", "Move left" },
     ["<C-l>"] = { "<Right>", "Move right" },
@@ -32,20 +28,7 @@ M.general = {
 
     -- setting
     ["<leader>s"] = { function() end, "Set" },
-    -- ["<leader>sc"] = { "<cmd>set cc=120<cr>", "Set Colorcolumn" },
     ["<leader>sn"] = { "<cmd>set nu! rnu!<cr>", "Toggle number" },
-    -- ["<leader>sn"] = { "<cmd>set cc=0<cr>", "Set No" },
-    -- ["<leader>snc"] = { "<cmd>set cc=0<cr>", "Set No Colorcolumn" },
-
-    -- save
-    -- ["<C-s>"] = { "<cmd> w <CR>", "Save file" },
-
-    -- Copy all
-    -- ["<C-c>"] = { "<cmd> %y+ <CR>", "Copy whole file" },
-
-    -- line numbers
-    -- ["<leader>n"] = { "<cmd> set nu! <CR>", "Toggle line number" },
-    -- ["<leader>rn"] = { "<cmd> set rnu! <CR>", "Toggle relative number" },
 
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
     -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
@@ -131,51 +114,23 @@ M.comment = {
 
 M.lspconfig = {
   plugin = true,
-
   -- See `<cmd> :help vim.lsp.*` for documentation on any of the below functions
 
   n = {
-    -- ["gD"] = {
-    --   function()
-    --     vim.lsp.buf.declaration()
-    --   end,
-    --   "LSP declaration",
-    -- },
-    -- ["<leader>ls"] = {
-    --   function()
-    --     vim.lsp.buf.signature_help()
-    --   end,
-    --   "LSP signature help",
-    -- },
+    ["<leader>rn"] = {
+      function()
+        require("nvchad.renamer").open()
+        vim.lsp.buf.rename()
+      end,
+      "LSP rename",
+    },
 
-    -- ["<leader>D"] = {
-    --   function()
-    --     vim.lsp.buf.type_definition()
-    --   end,
-    --   "LSP definition type",
-    -- },
-
-    -- ["<leader>rn"] = {
-    --   function()
-    --     -- require("nvchad.renamer").open()
-    --     vim.lsp.buf.rename()
-    --   end,
-    --   "LSP rename",
-    -- },
-
-    -- ["<leader>f"] = {
-    --   function()
-    --     vim.diagnostic.open_float { border = "rounded" }
-    --   end,
-    --   "Floating diagnostic",
-    -- },
-
-    -- ["<leader>q"] = {
-    --   function()
-    --     vim.diagnostic.setloclist()
-    --   end,
-    --   "Diagnostic setloclist",
-    -- },
+    ["K"] = {
+      function()
+        vim.diagnostic.open_float { border = "rounded" }
+      end,
+      "Floating diagnostic",
+    },
 
     -- ["<leader>wa"] = {
     --   function()
@@ -204,7 +159,6 @@ M.nvimtree = {
   plugin = true,
 
   n = {
-    -- toggle
     ["<leader>e"] = { "<cmd> NvimTreeToggle <CR>", "Toggle nvimtree" },
   },
 }
@@ -218,19 +172,8 @@ M.telescope = {
     ["<leader>ff"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all files" },
     ["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
     ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
-    -- ["<leader>fh"] = { "<cmd> Telescope help_tags <CR>", "Help page" },
     ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
     ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
-
-    -- git
-    -- ["<leader>cm"] = { "<cmd> Telescope git_commits <CR>", "Git commits" },
-    -- ["<leader>gt"] = { "<cmd> Telescope git_status <CR>", "Git status" },
-    --
-    -- pick a hidden term
-    -- ["<leader>pt"] = { "<cmd> Telescope terms <CR>", "Pick hidden term" },
-
-    -- theme switcher
-    ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
   },
 }
 
@@ -332,11 +275,9 @@ M.whichkey = {
     },
     ["ge"] = {
       function()
-        -- vim.cmd.normal "ma"
+        vim.cmd.normal "ma"
         vim.cmd "TroubleToggle"
-        -- require("telescope.builtin").diagnostics()
       end,
-      -- "Lists diagnostics",
       "Trouble toggle",
     },
     ["gt"] = {
@@ -352,12 +293,6 @@ M.whichkey = {
         require("telescope.builtin").marks()
       end,
       "Lists all marks",
-    },
-    ["<leader>rn"] = {
-      function()
-        vim.lsp.buf.rename()
-      end,
-      "LSP rename",
     },
     ["<leader>h"] = {
       function()
