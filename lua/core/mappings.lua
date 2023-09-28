@@ -31,6 +31,23 @@ M.general = {
     ["<leader>sn"] = { "<cmd>set nu! rnu!<cr>", "Toggle number" },
     ["P"] = { "<cmd>b#<cr>", "Switch oldfiles" },
 
+    -- copy
+    -- ["<leader>c"] = { function() end, "Copy +" },
+    ["<leader>ce"] = {
+      function()
+        vim.cmd.normal "v$hy"
+      end,
+      "Copy $",
+    },
+
+    -- ["<leader>sc"] = {
+    --   function()
+    -- local clipboard = vim.cmd "echo @+"
+    -- vim.cmd.echo(tostring(clipboard))
+    --   end,
+    --   "Show clipboard",
+    -- },
+
     -- Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
     -- http://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
     -- empty mode is same as using <cmd> :map
