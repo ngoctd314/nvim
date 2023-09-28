@@ -87,6 +87,13 @@ local plugins = {
       require "custom.configs.trouble"
     end,
   },
+  {
+    "RRethy/vim-illuminate",
+    lazy = true,
+    config = function()
+      require "custom.configs.illuminate"
+    end,
+  },
 
   -- Install a plugin
   -- {      require "custom.configs.easy-motion"

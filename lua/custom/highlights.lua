@@ -27,6 +27,7 @@ M.add = {
   GitSignsCurrentLineBlame = { fg = "#707070" },
   TroubleNormal = { fg = "#c6c8d1", bg = "#181825" },
   TroubleText = { fg = "#c6c8d1", bg = "" },
+  IlluminatedWordText = { fg = "#FFFFFF", bg = "#fab387" },
 }
 
 return M
