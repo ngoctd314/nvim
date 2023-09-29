@@ -32,13 +32,13 @@ M.general = {
     ["P"] = { "<cmd>b#<cr>", "Switch oldfiles" },
 
     -- copy
-    -- ["<leader>c"] = { function() end, "Copy +" },
-    ["<leader>ce"] = {
-      function()
-        vim.cmd.normal "v$hy"
-      end,
-      "Copy $",
-    },
+    -- ["<leader>c"] = { function() end, "+Copy" },
+    -- ["<leader>c$"] = {
+    --   function()
+    --     vim.cmd.normal "v$hy"
+    --   end,
+    --   "End of line",
+    -- },
 
     -- ["<leader>sc"] = {
     --   function()
