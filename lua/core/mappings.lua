@@ -293,7 +293,6 @@ M.whichkey = {
     },
     ["ge"] = {
       function()
-        vim.cmd.normal "ma"
         vim.cmd "TroubleToggle"
       end,
       "Trouble toggle",
