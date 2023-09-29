@@ -3,7 +3,7 @@ local b = null_ls.builtins
 
 local sources = {
   -- webdev stuff
-  b.formatting.prettier.with { filetypes = { "html", "markdown", "css", "yaml", "json" } },
+  b.formatting.prettier.with { filetypes = { "html", "css", "yaml", "json" } },
   -- Lua
   b.formatting.stylua.with { filetypes = { "lua" } },
   -- Go
