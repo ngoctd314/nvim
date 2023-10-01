@@ -195,14 +195,14 @@ M.telescope = {
   },
 }
 
+local nvtermModel = "horizontal"
 M.nvterm = {
   plugin = true,
-
   t = {
     -- toggle in terminal mode
     ["<C-t>"] = {
       function()
-        require("nvterm.terminal").toggle "horizontal"
+        require("nvterm.terminal").toggle(nvtermModel)
       end,
       "Toggle floating term",
     },
@@ -226,7 +226,7 @@ M.nvterm = {
     -- toggle in normal mode
     ["<C-t>"] = {
       function()
-        require("nvterm.terminal").toggle "horizontal"
+        require("nvterm.terminal").toggle(nvtermModel)
       end,
       "Toggle floating term",
     },
@@ -236,7 +236,7 @@ M.nvterm = {
     -- toggle in insert mode
     ["<C-t>"] = {
       function()
-        require("nvterm.terminal").toggle "horizontal"
+        require("nvterm.terminal").toggle(nvtermModel)
       end,
       "Toggle floating term",
     },
@@ -246,7 +246,7 @@ M.nvterm = {
     -- toggle in visual mode
     ["<C-t>"] = {
       function()
-        require("nvterm.terminal").toggle "horizontal"
+        require("nvterm.terminal").toggle(nvtermModel)
       end,
       "Toggle floating term",
     },

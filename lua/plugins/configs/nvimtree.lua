@@ -7,11 +7,6 @@ local function attach(bufnr)
 
   -- default mappings
   api.config.mappings.default_on_attach(bufnr)
-
-  -- custom mappings
-  vim.keymap.set("n", "<C-t>", function()
-    -- require("nvterm.terminal").toggle "horizontal"
-  end, opts "Up")
 end
 
 local options = {
