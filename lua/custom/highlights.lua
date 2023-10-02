@@ -15,8 +15,6 @@ M.override = {
   TblineFill = { bg = "#181825" },
   Normal = { fg = "#c6c8d1", bg = "#181825" },
 
-  -- NvimTreeNormal = { fg = "#c6c8d1", bg = "#1e1e2e" },
-  -- NvimTreeNormalNC = { fg = "#c6c8d1", bg = "#1e1e2e" },
   NvimTreeNormal = { fg = "#c6c8d1", bg = "#181825" },
   NvimTreeNormalNC = { fg = "#c6c8d1", bg = "#181825" },
   Search = { fg = "#141414", bg = "#fab387" },
@@ -26,7 +24,7 @@ M.override = {
 
 ---@type HLTable
 M.add = {
-  NvimTreeOpenedFolderName = { fg = "green", bold = true },
+  -- NvimTreeOpenedFolderName = { fg = "green", bold = true },
   GitSignsCurrentLineBlame = { fg = "#707070" },
   TroubleNormal = { fg = "#c6c8d1", bg = "#181825" },
   TroubleText = { fg = "#c6c8d1", bg = "" },
