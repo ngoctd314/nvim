@@ -1,8 +1,12 @@
 local options = {
   ensure_installed = {
     "lua-language-server",
+    "stylua",
+    -- Python
     "pyright",
+    -- Golang
     "gopls",
+    -- Javascript
     "typescript-language-server",
     "eslint-lsp",
   }, -- not an option from mason.nvim

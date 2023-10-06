@@ -18,46 +18,46 @@ local default_plugins = {
     lazy = false,
   },
 
-  {
-    "NvChad/nvterm",
-    init = function()
-      require("core.utils").load_mappings "nvterm"
-    end,
-    config = function(_, _)
-      require "base46.term"
-      require("nvterm").setup {
-        terminals = {
-          shell = vim.o.shell,
-          list = {},
-          type_opts = {
-            float = {
-              relative = "editor",
-              -- col = 0.05,
-              -- width = 0.9,
-              -- row = 0.05,
-              -- height = 0.85,
-              col = 0.1,
-              width = 0.8,
-              row = 0.15,
-              height = 0.7,
-              border = "single",
-            },
-            horizontal = { location = "rightbelow", split_ratio = 0.35 },
-            vertical = { location = "rightbelow", split_ratio = 0.5 },
-          },
-        },
-        behavior = {
-          autoclose_on_quit = {
-            enabled = false,
-            confirm = true,
-          },
-          close_on_exit = true,
-          auto_insert = true,
-        },
-      }
-      -- require("nvterm").setup(opts)
-    end,
-  },
+  -- {
+  --   "NvChad/nvterm",
+  --   init = function()
+  --     require("core.utils").load_mappings "nvterm"
+  --   end,
+  --   config = function(_, _)
+  --     require "base46.term"
+  --     require("nvterm").setup {
+  --       terminals = {
+  --         shell = vim.o.shell,
+  --         list = {},
+  --         type_opts = {
+  --           float = {
+  --             relative = "editor",
+  --             -- col = 0.05,
+  --             -- width = 0.9,
+  --             -- row = 0.05,
+  --             -- height = 0.85,
+  --             col = 0.1,
+  --             width = 0.8,
+  --             row = 0.15,
+  --             height = 0.7,
+  --             border = "single",
+  --           },
+  --           horizontal = { location = "rightbelow", split_ratio = 0.35 },
+  --           vertical = { location = "rightbelow", split_ratio = 0.5 },
+  --         },
+  --       },
+  --       behavior = {
+  --         autoclose_on_quit = {
+  --           enabled = false,
+  --           confirm = true,
+  --         },
+  --         close_on_exit = true,
+  --         auto_insert = true,
+  --       },
+  --     }
+  --     -- require("nvterm").setup(opts)
+  --   end,
+  -- },
 
   {
     "NvChad/nvim-colorizer.lua",
@@ -167,6 +167,15 @@ local default_plugins = {
 
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      -- format & linting
+      {
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+          require "plugins.configs.null-ls"
+        end,
+      },
+    },
     init = function()
       require("core.utils").lazy_load "nvim-lspconfig"
     end,
@@ -268,7 +277,7 @@ local default_plugins = {
       return require "plugins.configs.telescope"
     end,
     config = function(_, opts)
-      dofile(vim.g.base46_cache .. "telescope")
+      -- dofile(vim.g.base46_cache .. "telescope")
       local telescope = require "telescope"
       telescope.setup(opts)
 
@@ -289,6 +298,47 @@ local default_plugins = {
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "whichkey")
       require("which-key").setup(opts)
+    end,
+  },
+  {
+    "phaazon/hop.nvim", -- easymotion
+    lazy = false,
+    config = function()
+      require "plugins.configs.easymotion"
+    end,
+  },
+  {
+    "olexsmir/gopher.nvim",
+    lazy = false,
+    ft = "go",
+    config = function()
+      require "plugins.configs.gopher"
+    end,
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    lazy = false,
+    config = function()
+      require "plugins.configs.toggleterm"
+    end,
+  },
+  {
+    "github/copilot.vim",
+    lazy = true,
+  },
+  {
+    "kylechui/nvim-surround", -- change pairs
+    lazy = false,
+    config = function()
+      require("nvim-surround").setup()
+    end,
+  },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    lazy = false,
+    config = function()
+      require "plugins.configs.trouble"
     end,
   },
 }

@@ -1,15 +1,12 @@
----@type ChadrcConfig
-local O = {}
+-- To find any highlight groups: "<cmd> Telescope highlights"
+-- Each highlight group can take a table with variables fg, bg, bold, italic, etc
+-- base30 variable names can also be used as colors
+
+---@class ChadrcConfig
+local M = {}
 
 ---@type Base46HLGroupsList
-O.override = {
-  -- CursorLine = { bg = "#353342" },
-  Comment = {
-    italic = true,
-  },
-}
-
-O.override = {
+M.override = {
   NormalFloat = { bg = "#181825" },
   ColorColumn = { bg = "#222235" },
   TblineFill = { bg = "#181825" },
@@ -22,26 +19,12 @@ O.override = {
   NvimTreeWinSeparator = { fg = "#353342", bg = "#181825" },
 }
 ---@type HLTable
-O.add = {
+M.add = {
   -- NvimTreeOpenedFolderName = { fg = "green", bold = true },
   GitSignsCurrentLineBlame = { fg = "#707070" },
   TroubleNormal = { fg = "#c6c8d1", bg = "#181825" },
   TroubleText = { fg = "#c6c8d1", bg = "" },
   IlluminatedWordText = { fg = "#FFFFFF", bg = "#fab387" },
 }
-
-local M = {}
-
-M.ui = {
-  theme = "catppuccin",
-  theme_toggle = { "catppuccin", "one_light" },
-}
-
-if M.ui.theme == "catppuccin" then
-  M.ui.hl_override = O.override
-  M.ui.add = O.add
-end
-
-M.plugins = "custom.plugins"
 
 return M
