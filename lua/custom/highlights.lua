@@ -6,21 +6,28 @@ local M = {}
 
 ---@type Base46HLGroupsList
 M.override = {
+  -- CursorLine = { bg = "#353342" },
   Comment = {
     italic = true,
   },
-  -- CursorLine = { bg = "#353342" },
-  NormalFloat = { bg = "#181825" },
-  ColorColumn = { bg = "#222235" },
-  TblineFill = { bg = "#181825" },
-  Normal = { fg = "#c6c8d1", bg = "#181825" },
-
-  NvimTreeNormal = { fg = "#c6c8d1", bg = "#181825" },
-  NvimTreeNormalNC = { fg = "#c6c8d1", bg = "#181825" },
-  Search = { fg = "#141414", bg = "#fab387" },
-  WinSeparator = { fg = "#353342", bg = "#181825" },
-  NvimTreeWinSeparator = { fg = "#353342", bg = "#181825" },
 }
+
+local theme = "catppuccin"
+
+if theme == "catppuccin" then
+  M.override = {
+    NormalFloat = { bg = "#181825" },
+    ColorColumn = { bg = "#222235" },
+    TblineFill = { bg = "#181825" },
+    Normal = { fg = "#c6c8d1", bg = "#181825" },
+
+    NvimTreeNormal = { fg = "#c6c8d1", bg = "#181825" },
+    NvimTreeNormalNC = { fg = "#c6c8d1", bg = "#181825" },
+    Search = { fg = "#141414", bg = "#fab387" },
+    WinSeparator = { fg = "#353342", bg = "#181825" },
+    NvimTreeWinSeparator = { fg = "#353342", bg = "#181825" },
+  }
+end
 
 ---@type HLTable
 M.add = {

@@ -121,6 +121,14 @@ M.comment = {
       "Toggle comment",
     },
   },
+  i = {
+    ["<C-_>"] = {
+      function()
+        require("Comment.api").toggle.linewise.current()
+      end,
+      "Toggle comment",
+    },
+  },
 
   v = {
     ["<C-_>"] = {
