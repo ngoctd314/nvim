@@ -1,4 +1,4 @@
-local hi = require "plugins.highlights"
+local hi = require "custom.highlights"
 
 local M = {}
 
@@ -12,6 +12,6 @@ if M.ui.theme == "catppuccin" then
   M.ui.add = hi.add
 end
 
-M.plugins = "custom.plugins"
+-- M.plugins = "custom.plugins"
 
 return M

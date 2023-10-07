@@ -31,18 +31,18 @@ local formatting_style = {
   end,
 }
 
-local function border(hl_name)
-  return {
-    { "╭", hl_name },
-    { "─", hl_name },
-    { "╮", hl_name },
-    { "│", hl_name },
-    { "╯", hl_name },
-    { "─", hl_name },
-    { "╰", hl_name },
-    { "│", hl_name },
-  }
-end
+-- local function border(hl_name)
+--   return {
+--     { "╭", hl_name },
+--     { "─", hl_name },
+--     { "╮", hl_name },
+--     { "│", hl_name },
+--     { "╯", hl_name },
+--     { "─", hl_name },
+--     { "╰", hl_name },
+--     { "│", hl_name },
+--   }
+-- end
 
 local options = {
   completion = {
@@ -56,8 +56,8 @@ local options = {
       scrollbar = false,
     },
     documentation = {
-      border = border "CmpDocBorder",
-      winhighlight = "Normal:CmpDoc",
+      -- border = border "CmpDocBorder",
+      -- winhighlight = "Normal:CmpDoc",
     },
   },
   snippet = {
