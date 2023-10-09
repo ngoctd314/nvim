@@ -41,7 +41,8 @@ M.capabilities.textDocument.completion.completionItem = {
   },
 }
 
-require("lspconfig").lua_ls.setup {
+local lspconfig = require "lspconfig"
+lspconfig.lua_ls.setup {
   on_attach = M.on_attach,
   capabilities = M.capabilities,
 
@@ -63,5 +64,64 @@ require("lspconfig").lua_ls.setup {
     },
   },
 }
+
+local util = require "lspconfig/util"
+
+--  Go
+lspconfig.gopls.setup {
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      -- usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      },
+    },
+  },
+}
+
+-- Python
+lspconfig.pyright.setup {
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+  filetypes = { "python" },
+}
+
+-- Javascript
+lspconfig.tsserver.setup {
+  on_attach = M.on_attach,
+  capabilities = M.capabilities,
+  init_options = {
+    preferences = {
+      disableSuggestions = true,
+    },
+  },
+}
+
+-- Use LspAttach autocommand to only map the following keys
+-- after the language server attaches to the current buffer
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+  callback = function(args)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.bo[args.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
+
+    -- Buffer local mappings.
+    -- See `:help vim.lsp.*` for documentation on any of the below functions
+    local opts = { buffer = args.buf }
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+
+    if client.server_capabilities.hoverProvider then
+      -- Displays hover information about the symbol under the cursor in a floating window. Calling the function twice will jump into the floating window.
+      vim.keymap.set("n", "S", vim.lsp.buf.hover, opts)
+      -- vim.keymap.set('n', 'K', vim.diagnostic.open_float, { buffer = args.buf })
+    end
+  end,
+})
 
 return M

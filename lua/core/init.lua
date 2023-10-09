@@ -113,6 +113,16 @@ autocmd("BufWritePost", {
   end,
 })
 
+-- auto fold
+autocmd("BufWinLeave", {
+  pattern = "*",
+  command = "silent! mkview",
+})
+
+autocmd("BufWinEnter", {
+  pattern = "*",
+  command = "silent! loadview",
+})
 -------------------------------------- commands ------------------------------------------
 local new_cmd = vim.api.nvim_create_user_command
 
