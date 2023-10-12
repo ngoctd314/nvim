@@ -5,23 +5,42 @@
 ---@class ChadrcConfig
 local M = {}
 
+local pallete = {
+    normal = {
+        fg = "#c6c8d1",
+        bg = "#171521",
+    },
+}
+
 ---@type Base46HLGroupsList
 M.override = {
-    NormalFloat = { bg = "#181825" },
-    ColorColumn = { bg = "#222235" },
-    -- TblineFill = { bg = "#181825" },
-    Normal = { fg = "#c6c8d1", bg = "#181825" },
-    --
-    NvimTreeNormal = { fg = "#c6c8d1", bg = "#181825" },
-    NvimTreeNormalNC = { fg = "#c6c8d1", bg = "#181825" },
-    Search = { fg = "#141414", bg = "#fab387" },
+    TblineFill = { bg = pallete.normal.bg },
+    TbLineBufOn = { fg = "red", bg = pallete.normal.bg },
+    TbLineBufOnClose = { bg = pallete.normal.bg },
+    TbLineBufOff = { bg = pallete.normal.bg },
+    TbLineBufOffClose = { bg = pallete.normal.bg },
+    TbLineThemeToggleBtn = { bg = pallete.normal.bg },
+    TbLineBufOnModified = { bg = pallete.normal.bg },
+
+    Normal = { fg = pallete.normal.fg, bg = pallete.normal.bg, bold = true },
+    TelescopeBorder = { fg = "#353342", bg = pallete.normal.bg },
+    TelescopeNormal = { fg = pallete.normal.fg, bg = pallete.normal.bg },
+    TelescopeSelection = { fg = pallete.normal.fg, bg = "#222235" },
+    TelescopePromptNormal = { fg = pallete.normal.fg, bg = pallete.normal.bg },
+    TelescopePromptPrefix = { bg = pallete.normal.bg },
+    NormalFloat = { bg = pallete.normal.bg },
+
+    -- St_file_info = { bg = pallete.normal.bg },
+    St_file_sep = { bg = pallete.normal.bg },
+    St_gitIcons = { bg = pallete.normal.bg },
+    St_LspStatus = { bg = pallete.normal.bg },
+    St_cwd_text = { bg = pallete.normal.bg },
+    St_pos_text = { bg = pallete.normal.bg },
+
+    NvimTreeNormal = { fg = "#c6c8d1", bg = pallete.normal.bg },
+    NvimTreeNormalNC = { fg = "#c6c8d1", bg = pallete.normal.bg },
+    NvimTreeWinSeparator = { fg = "#353342", bg = pallete.normal.bg },
     -- WinSeparator = { fg = "#353342", bg = "#181825" },
-    NvimTreeWinSeparator = { fg = "#353342", bg = "#181825" },
-    TelescopeBorder = { fg = "#353342", bg = "#181825" },
-    TelescopeNormal = { fg = "#c6c8d1", bg = "#181825" },
-    TelescopeSelection = { fg = "#c6c8d1", bg = "#222235" },
-    TelescopePromptNormal = { fg = "#c6c8d1", bg = "#181825" },
-    TelescopePromptPrefix = { bg = "#181825" },
 }
 ---@type HLTable
 M.add = {
@@ -29,7 +48,6 @@ M.add = {
     GitSignsCurrentLineBlame = { fg = "#707070" },
     -- TroubleNormal = { fg = "#c6c8d1", bg = "#181825" },
     -- TroubleText = { fg = "#c6c8d1", bg = "" },
-    -- IlluminatedWordText = { fg = "#FFFFFF", bg = "#fab387" },
 }
 
 return M
