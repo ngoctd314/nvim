@@ -203,63 +203,63 @@ M.telescope = {
     },
 }
 
--- local nvtermModel = "horizontal"
--- M.nvterm = {
---   plugin = true,
---   t = {
---     -- toggle in terminal mode
---     ["<C-t>"] = {
---       function()
---         require("nvterm.terminal").toggle(nvtermModel)
---       end,
---       "Toggle floating term",
---     },
---     ["<C-j>"] = {
---       function()
---         vim.cmd "wincmd j"
---       end,
---       "Window down",
---     },
---     ["<C-k>"] = {
---       function()
---         vim.cmd "wincmd k"
---       end,
---       "Window up",
---     },
---     -- Escape terminal mode
---     ["<esc>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
---   },
---
---   n = {
---     -- toggle in normal mode
---     ["<C-t>"] = {
---       function()
---         require("nvterm.terminal").toggle(nvtermModel)
---       end,
---       "Toggle floating term",
---     },
---   },
---
---   i = {
---     -- toggle in insert mode
---     ["<C-t>"] = {
---       function()
---         require("nvterm.terminal").toggle(nvtermModel)
---       end,
---       "Toggle floating term",
---     },
---   },
---
---   v = {
---     -- toggle in visual mode
---     ["<C-t>"] = {
---       function()
---         require("nvterm.terminal").toggle(nvtermModel)
---       end,
---       "Toggle floating term",
---     },
---   },
--- }
+local nvtermModel = "float"
+M.nvterm = {
+    plugin = true,
+    t = {
+        -- toggle in terminal mode
+        ["<C-t>"] = {
+            function()
+                require("nvterm.terminal").toggle(nvtermModel)
+            end,
+            "Toggle floating term",
+        },
+        ["<C-j>"] = {
+            function()
+                vim.cmd "wincmd j"
+            end,
+            "Window down",
+        },
+        ["<C-k>"] = {
+            function()
+                vim.cmd "wincmd k"
+            end,
+            "Window up",
+        },
+        -- Escape terminal mode
+        ["<esc>"] = { vim.api.nvim_replace_termcodes("<C-\\><C-N>", true, true, true), "Escape terminal mode" },
+    },
+
+    n = {
+        -- toggle in normal mode
+        ["<C-t>"] = {
+            function()
+                require("nvterm.terminal").toggle(nvtermModel)
+            end,
+            "Toggle floating term",
+        },
+    },
+
+    i = {
+        -- toggle in insert mode
+        ["<C-t>"] = {
+            function()
+                require("nvterm.terminal").toggle(nvtermModel)
+            end,
+            "Toggle floating term",
+        },
+    },
+
+    v = {
+        -- toggle in visual mode
+        ["<C-t>"] = {
+            function()
+                require("nvterm.terminal").toggle(nvtermModel)
+            end,
+            "Toggle floating term",
+        },
+    },
+}
 
 M.whichkey = {
     plugin = true,
