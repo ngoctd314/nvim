@@ -9,6 +9,7 @@ local pallete = {
     normal = {
         fg = "#c6c8d1",
         bg = "#171521",
+        bg1 = "#16121C",
     },
 }
 
@@ -31,15 +32,15 @@ M.override = {
     NormalFloat = { bg = pallete.normal.bg },
 
     -- St_file_info = { bg = pallete.normal.bg },
-    St_file_sep = { bg = pallete.normal.bg },
-    St_gitIcons = { bg = pallete.normal.bg },
-    St_LspStatus = { bg = pallete.normal.bg },
-    St_cwd_text = { bg = pallete.normal.bg },
-    St_pos_text = { bg = pallete.normal.bg },
+    -- St_file_sep = { bg = pallete.normal.bg },
+    -- St_gitIcons = { bg = pallete.normal.bg },
+    -- St_LspStatus = { bg = pallete.normal.bg },
+    -- St_cwd_text = { bg = pallete.normal.bg },
+    -- St_pos_text = { bg = pallete.normal.bg },
 
-    NvimTreeNormal = { fg = "#c6c8d1", bg = pallete.normal.bg },
-    NvimTreeNormalNC = { fg = "#c6c8d1", bg = pallete.normal.bg },
-    NvimTreeWinSeparator = { fg = "#353342", bg = pallete.normal.bg },
+    NvimTreeNormal = { fg = pallete.normal.fg, bg = pallete.normal.bg },
+    NvimTreeNormalNC = { fg = pallete.normal.fg, bg = pallete.normal.bg },
+    NvimTreeWinSeparator = { fg = "#34343F", bg = pallete.normal.bg },
     -- WinSeparator = { fg = "#353342", bg = "#181825" },
 }
 ---@type HLTable

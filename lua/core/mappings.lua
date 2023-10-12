@@ -30,6 +30,7 @@ M.general = {
         ["<leader>s"] = { function() end, "Set" },
         ["<leader>sn"] = { "<cmd>set nu! rnu!<cr>", "Toggle number" },
         ["P"] = { "<cmd>b#<cr>", "Switch oldfiles" },
+        ["U"] = { "<C-r>", "Redodo" },
 
         -- copy
         -- ["<leader>c"] = { function() end, "+Copy" },

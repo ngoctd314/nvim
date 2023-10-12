@@ -37,7 +37,7 @@ M.ui = {
         separator_style = "default",
         overriden_modules = nil,
     },
-
+    --
     -- lazyload it when there are 1+ buffers
     tabufline = {
         show_numbers = false,
