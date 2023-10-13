@@ -23,6 +23,14 @@ M.override = {
     TbLineThemeToggleBtn = { bg = pallete.normal.bg },
     TbLineBufOnModified = { bg = pallete.normal.bg },
 
+    -- TbBufLineBufOffModified = { bg = pallete.normal.bg },
+    -- TblineTabNewBtn = { bg = pallete.normal.bg },
+    -- TbLineTabOn = { bg = pallete.normal.bg },
+    -- TbLineTabOff = { bg = pallete.normal.bg },
+    -- TbLineTabCloseBtn = { bg = pallete.normal.bg },
+    -- TbLineCloseAllBufsBtn = { bg = pallete.normal.bg },
+    -- TBTabTitle = { bg = pallete.normal.bg },
+
     Normal = { fg = pallete.normal.fg, bg = pallete.normal.bg, bold = true },
     TelescopeBorder = { fg = "#353342", bg = pallete.normal.bg },
     TelescopeNormal = { fg = pallete.normal.fg, bg = pallete.normal.bg },
