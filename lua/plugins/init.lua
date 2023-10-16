@@ -288,6 +288,18 @@ local default_plugins = {
             local telescope = require "telescope"
             telescope.setup(opts)
 
+            local actions = require "telescope.actions"
+            telescope.setup {
+                defaults = {
+                    mappings = {
+                        i = {
+                            ["<C-j>"] = actions.cycle_history_next,
+                            ["<C-k>"] = actions.cycle_history_prev,
+                        },
+                    },
+                },
+            }
+
             -- load extensions
             for _, ext in ipairs(opts.extensions_list) do
                 telescope.load_extension(ext)

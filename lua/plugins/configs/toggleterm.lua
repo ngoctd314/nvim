@@ -19,8 +19,8 @@ toggleterm.setup {
     float_opts = {
         -- border = 'single' | 'double' | 'shadow' | 'curved' |
         border = "single",
-        width = 160,
-        height = 40,
+        -- width = 160,
+        -- height = 40,
         -- winblend = 10,
     },
     highlights = {
