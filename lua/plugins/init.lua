@@ -297,6 +297,7 @@ local default_plugins = {
                             ["<C-k>"] = actions.cycle_history_prev,
                         },
                     },
+                    file_ignore_patterns = { "node_modules", "dist" },
                 },
             }
 
