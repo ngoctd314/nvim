@@ -12,6 +12,9 @@ local options = {
         end,
         use_languagetree = true,
     },
+    autotag = {
+        enable = true,
+    },
 
     indent = { enable = true },
 }

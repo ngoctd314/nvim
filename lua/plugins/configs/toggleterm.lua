@@ -13,7 +13,7 @@ toggleterm.setup {
     start_in_insert = true,
     insert_mappings = true,
     persist_size = true,
-    direction = "float",
+    direction = "horizontal",
     close_on_exit = true,
     shell = vim.o.shell,
     float_opts = {
@@ -32,9 +32,6 @@ toggleterm.setup {
     },
     winbar = {
         enabled = false,
-        name_formatter = function(term) --  term: Terminal
-            return term.name
-        end,
     },
 }
 

@@ -354,6 +354,10 @@ local default_plugins = {
             require "plugins.configs.trouble"
         end,
     },
+    {
+        "windwp/nvim-ts-autotag",
+        lazy = false,
+    },
 }
 
 local config = require("core.utils").load_config()
