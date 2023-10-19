@@ -76,10 +76,10 @@ lspconfig.gopls.setup {
     root_dir = util.root_pattern("go.work", "go.mod", ".git"),
     settings = {
         gopls = {
-            completeUnimported = true,
-            -- usePlaceholders = true,
+            usePlaceholders = false, -- auto add input params, never use it
             analyses = {
                 unusedparams = true,
+                unreachable = true,
             },
         },
     },
