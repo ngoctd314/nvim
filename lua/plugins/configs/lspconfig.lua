@@ -90,6 +90,16 @@ lspconfig.pyright.setup {
     on_attach = M.on_attach,
     capabilities = M.capabilities,
     filetypes = { "python" },
+    -- filetypes = { "python" },
+    analysis = {
+        autoImportCompletions = true,
+        autoSearchPaths = true,
+        diagnosticMode = "workspace", -- openFilesOnly, workspace
+        typeCheckingMode = "basic", -- off, basic, strict
+        useLibraryCodeForTypes = true,
+    },
+    disableOrganizeImports = false,
+    disableLanguageServices = false,
 }
 
 -- Javascript
