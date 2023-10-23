@@ -32,7 +32,7 @@ M.override = {
     -- TBTabTitle = { bg = pallete.normal.bg },
 
     Normal = { fg = pallete.normal.fg, bg = pallete.normal.bg, bold = true },
-    TelescopeBorder = { fg = "#353342", bg = pallete.normal.bg },
+    TelescopeBorder = { fg = "#313244", bg = pallete.normal.bg },
     TelescopeNormal = { fg = pallete.normal.fg, bg = pallete.normal.bg },
     TelescopeSelection = { fg = pallete.normal.fg, bg = "#222235" },
     TelescopePromptNormal = { fg = pallete.normal.fg, bg = pallete.normal.bg },
@@ -48,7 +48,7 @@ M.override = {
 
     NvimTreeNormal = { fg = pallete.normal.fg, bg = pallete.normal.bg },
     NvimTreeNormalNC = { fg = pallete.normal.fg, bg = pallete.normal.bg },
-    NvimTreeWinSeparator = { fg = "#34343F", bg = pallete.normal.bg },
+    NvimTreeWinSeparator = { fg = "#313244", bg = pallete.normal.bg },
     -- WinSeparator = { fg = "#353342", bg = "#181825" },
 }
 ---@type HLTable

@@ -89,16 +89,16 @@ lspconfig.gopls.setup {
 lspconfig.pyright.setup {
     on_attach = M.on_attach,
     capabilities = M.capabilities,
-    -- filetypes = { "python" },
-    analysis = {
-        autoImportCompletions = true,
-        autoSearchPaths = true,
-        diagnosticMode = "workspace", -- openFilesOnly, workspace
-        typeCheckingMode = "basic", -- off, basic, strict
-        useLibraryCodeForTypes = true,
-    },
-    disableOrganizeImports = false,
-    disableLanguageServices = false,
+    filetypes = { "python" },
+    -- analysis = {
+    --     autoImportCompletions = false,
+    -- autoSearchPaths = true,
+    -- diagnosticMode = "workspace", -- openFilesOnly, workspace
+    -- typeCheckingMode = "basic", -- off, basic, strict
+    -- useLibraryCodeForTypes = true,
+    -- },
+    -- disableOrganizeImports = true,
+    -- disableLanguageServices = true,
 }
 
 -- Javascript
