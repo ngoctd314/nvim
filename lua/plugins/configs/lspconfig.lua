@@ -90,15 +90,16 @@ lspconfig.pyright.setup {
     on_attach = M.on_attach,
     capabilities = M.capabilities,
     filetypes = { "python" },
-    -- analysis = {
-    --     autoImportCompletions = false,
-    -- autoSearchPaths = true,
-    -- diagnosticMode = "workspace", -- openFilesOnly, workspace
-    -- typeCheckingMode = "basic", -- off, basic, strict
-    -- useLibraryCodeForTypes = true,
-    -- },
-    -- disableOrganizeImports = true,
-    -- disableLanguageServices = true,
+    -- filetypes = { "python" },
+    analysis = {
+        autoImportCompletions = true,
+        autoSearchPaths = true,
+        diagnosticMode = "workspace", -- openFilesOnly, workspace
+        typeCheckingMode = "basic", -- off, basic, strict
+        useLibraryCodeForTypes = true,
+    },
+    disableOrganizeImports = false,
+    disableLanguageServices = false,
 }
 
 -- Javascript
@@ -107,7 +108,7 @@ lspconfig.tsserver.setup {
     capabilities = M.capabilities,
     init_options = {
         preferences = {
-            disableSuggestions = true,
+            disableSuggestions = false,
         },
     },
 }
