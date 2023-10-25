@@ -30,6 +30,7 @@ M.override = {
     -- TbLineTabCloseBtn = { bg = pallete.normal.bg },
     -- TbLineCloseAllBufsBtn = { bg = pallete.normal.bg },
     -- TBTabTitle = { bg = pallete.normal.bg },
+    FloatBorder = { fg = "#313244" }, -- hover border
 
     Normal = { fg = pallete.normal.fg, bg = pallete.normal.bg, bold = true },
     TelescopeBorder = { fg = "#313244", bg = pallete.normal.bg },
