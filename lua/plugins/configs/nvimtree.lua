@@ -34,7 +34,7 @@ local options = {
         preserve_window_proportions = true,
         number = false,
         relativenumber = false,
-        signcolumn = "true",
+        signcolumn = "yes",
     },
     git = {
         enable = false,
