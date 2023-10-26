@@ -196,6 +196,20 @@ M.telescope = {
         ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
         ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
         ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
+        ["<leader>ft"] = {
+            function()
+                vim.cmd.normal "ma"
+                require("telescope.builtin").lsp_document_symbols { symbol_width = 60 }
+            end,
+            "Lists document symbols",
+        },
+        ["<leader>fm"] = {
+            function()
+                vim.cmd.normal "ma"
+                require("telescope.builtin").marks()
+            end,
+            "Lists all marks",
+        },
     },
 }
 
@@ -233,7 +247,7 @@ M.whichkey = {
         ["gr"] = {
             function()
                 vim.cmd.normal "ma"
-                require("telescope.builtin").lsp_references()
+                require("telescope.builtin").lsp_references { fname_width = 60 }
             end,
             "List references",
         },
@@ -242,20 +256,6 @@ M.whichkey = {
                 vim.cmd "TroubleToggle"
             end,
             "Trouble toggle",
-        },
-        ["gt"] = {
-            function()
-                vim.cmd.normal "ma"
-                require("telescope.builtin").lsp_document_symbols()
-            end,
-            "Lists document symbols",
-        },
-        ["gm"] = {
-            function()
-                vim.cmd.normal "ma"
-                require("telescope.builtin").marks()
-            end,
-            "Lists all marks",
         },
         ["<leader>h"] = {
             function()
