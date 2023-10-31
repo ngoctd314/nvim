@@ -191,7 +191,17 @@ M.telescope = {
     n = {
         -- find
         ["<leader>f"] = { function() end, "Telescope finds" },
-        ["<leader>ff"] = { "<cmd> Telescope find_files follow=true no_ignore=true hidden=true <CR>", "Find all files" },
+        ["<leader>ff"] = {
+            function()
+                require("telescope.builtin").find_files {
+                    follow = true,
+                    no_ignore = true,
+                    hidden = true,
+                    layout_strategy = "horizontal", -- horizontal, vertical
+                }
+            end,
+            "Find all files",
+        },
         ["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
         ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
         ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
