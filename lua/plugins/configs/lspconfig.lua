@@ -80,6 +80,10 @@ lspconfig.gopls.setup {
             analyses = {
                 unusedparams = true,
                 unreachable = true,
+                shadow = true,
+                fieldalignment = true,
+                nilness = true,
+                unusedwrite = true,
             },
         },
     },

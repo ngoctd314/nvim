@@ -2,6 +2,8 @@ local null_ls = require "null-ls"
 local b = null_ls.builtins
 
 local sources = {
+    -- spell
+    -- b.diagnostics.misspell,
     -- webdev stuff
     b.formatting.prettier.with { filetypes = { "html", "css", "yaml", "json" } },
     -- Lua
