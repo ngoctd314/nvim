@@ -31,6 +31,7 @@ M.general = {
         ["<leader>sn"] = { "<cmd>set nu! rnu!<cr>", "Toggle number" },
         ["P"] = { "<cmd>b#<cr>", "Switch oldfiles" },
         ["U"] = { "<C-r>", "Redodo" },
+        ["G"] = { "Gzz" }, -- auto zz with G
 
         -- copy
         -- ["<leader>c"] = { function() end, "+Copy" },
