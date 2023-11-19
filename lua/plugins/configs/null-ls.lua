@@ -18,11 +18,10 @@ local sources = {
     -- Json
     -- b.formatting.jq.with { filetypes = { "json" } },
     -- Python
-    b.formatting.black.with { filetypes = { "python" } },
+    b.diagnostics.flake8.with { filetypes = { "python" } },
+    -- b.formatting.black.with { filetypes = { "python" } },
     -- b.formatting.autoflake.with { filetypes = { "python" } }, -- remove unuse import
     -- b.formatting.pyflakes.with { filetypes = { "python" } },
-    -- b.formatting.black,
-    -- b.diagnostics.mypy.with { filetypes = { "python" } },
     -- b.diagnostics.ruff.with { filetypes = { "python" } },
 
     -- Javascript
