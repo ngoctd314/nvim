@@ -202,7 +202,17 @@ M.telescope = {
             end,
             "Find all files",
         },
-        ["<leader>fg"] = { "<cmd> Telescope live_grep <CR>", "Live grep" },
+        ["<leader>fg"] = {
+            function()
+                require("telescope.builtin").live_grep {
+                    follow = true,
+                    no_ignore = true,
+                    hidden = true,
+                    layout_strategy = "horizontal", -- horizontal, vertical
+                }
+            end,
+            "Live grep",
+        },
         ["<leader>fb"] = { "<cmd> Telescope buffers <CR>", "Find buffers" },
         ["<leader>fo"] = { "<cmd> Telescope oldfiles <CR>", "Find oldfiles" },
         ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
