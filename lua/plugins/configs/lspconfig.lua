@@ -89,6 +89,9 @@ lspconfig.gopls.setup {
     },
 }
 
+-- Json
+lspconfig.jsonls.setup {}
+
 -- Python
 lspconfig.pyright.setup {
     on_attach = M.on_attach,

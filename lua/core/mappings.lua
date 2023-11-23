@@ -194,6 +194,7 @@ M.telescope = {
         ["<leader>f"] = { function() end, "Telescope finds" },
         ["<leader>ff"] = {
             function()
+                vim.cmd.normal "mP"
                 require("telescope.builtin").find_files {
                     follow = true,
                     no_ignore = true,
@@ -205,6 +206,7 @@ M.telescope = {
         },
         ["<leader>fg"] = {
             function()
+                vim.cmd.normal "mP"
                 require("telescope.builtin").live_grep {
                     follow = true,
                     no_ignore = true,
@@ -219,15 +221,15 @@ M.telescope = {
         ["<leader>fz"] = { "<cmd> Telescope current_buffer_fuzzy_find <CR>", "Find in current buffer" },
         ["<leader>ft"] = {
             function()
-                vim.cmd.normal "ma"
-                require("telescope.builtin").lsp_document_symbols { symbol_width = 60 }
+                vim.cmd.normal "mP"
+                require("telescope.builtin").lsp_document_symbols { symbol_width = 60, layout_strategy = "horizontal" }
             end,
             "Lists document symbols",
         },
         ["<leader>fm"] = {
             function()
-                vim.cmd.normal "ma"
-                require("telescope.builtin").marks()
+                vim.cmd.normal "mP"
+                require("telescope.builtin").marks { symbol_width = 60, layout_strategy = "horizontal" }
             end,
             "Lists all marks",
         },
