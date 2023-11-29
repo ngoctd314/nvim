@@ -15,6 +15,8 @@ local sources = {
     -- b.formatting.golines,
     -- SQL
     b.formatting.sql_formatter.with { filetypes = { "sql" } },
+    -- PHP
+    b.formatting.phpcsfixer.with { filetypes = { "php" } },
     -- Json
     -- b.formatting.jq.with { filetypes = { "json" } },
     -- Python

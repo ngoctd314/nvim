@@ -318,6 +318,14 @@ local default_plugins = {
         "windwp/nvim-ts-autotag",
         lazy = false,
     },
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function()
+            vim.fn["mkdp#util#install"]()
+        end,
+    },
 }
 
 local config = require("core.utils").load_config()
