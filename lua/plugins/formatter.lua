@@ -5,7 +5,8 @@ local options = {
     java = { "clang-format" },
     javascript = { "clang-format" },
     python = { "clang-format" },
-    -- css = { "prettier" },
+    yaml = { "prettier" },
+    yml = { "prettier" },
     -- html = { "prettier" },
   },
 

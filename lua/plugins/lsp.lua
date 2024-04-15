@@ -143,13 +143,32 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local opts = { buffer = args.buf }
     local client = vim.lsp.get_client_by_id(args.data.client_id)
 
-    if client.server_capabilities.hoverProvider then
+    if client ~= nil and client.server_capabilities.hoverProvider then
       -- Displays hover information about the symbol under the cursor in a floating window. Calling the function twice will jump into the floating window.
+      vim.diagnostic.config {
+        float = { border = "single" },
+      }
       vim.keymap.set("n", "S", vim.lsp.buf.hover, opts)
       vim.keymap.set("n", "K", vim.diagnostic.open_float, { buffer = args.buf })
     end
   end,
 })
+
+local signs = {
+  -- Error = "",
+  -- Warn = "",
+  -- Hint = "💡",
+  -- Infor = "",
+  Error = "E",
+  Warn = "W",
+  Hint = "H",
+  Infor = "I",
+}
+
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 
 return {
   "neovim/nvim-lspconfig",
