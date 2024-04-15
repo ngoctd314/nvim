@@ -9,7 +9,7 @@ map("n", "<leader>q", function()
 end, { desc = "Quick fix" })
 
 map("n", "G", "Gzz", { desc = "Auto zz with G" })
--- ["*"] = { "*N", "Highlights" },
+map("n", "*", "*N", { desc = "Highlights" })
 
 map("n", "L", "<cmd>bnext<cr>", { desc = "Buffer next" })
 map("n", "H", "<cmd>bprevious<cr>", { desc = "Buffer previous" })
@@ -33,9 +33,6 @@ map("n", "<leader>rn", function()
   --require("nvchad.renamer").open()
   vim.lsp.buf.rename()
 end, { desc = "LSP rename" })
-map("n", "K", function()
-  vim.diagnostic.open_float { border = "single" }
-end, { desc = "Floating diagnostic" })
 
 -- telescope
 local telescope_builtin = require "telescope.builtin"
@@ -72,7 +69,7 @@ map("n", "gi", function()
   telescope_builtin.lsp_implementations()
 end, { desc = "lsp_implementations" })
 map("n", "gr", function()
-  telescope_builtin.lsp_references { fname_width = 60 }
+  telescope_builtin.lsp_references()
 end, { desc = "lsp_references" })
 
 -- diagnostic

@@ -1,8 +1,10 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    go = { "gofmt" },
+    go = { "gofmt", "goimports" },
     java = { "clang-format" },
+    javascript = { "clang-format" },
+    python = { "clang-format" },
     -- css = { "prettier" },
     -- html = { "prettier" },
   },
