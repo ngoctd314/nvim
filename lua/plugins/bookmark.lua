@@ -18,7 +18,7 @@ return {
       on_attach = function()
         local bm = require "bookmarks"
         local map = vim.keymap.set
-        map("n", "mm", bm.bookmark_toggle, { desc = "bookmark_toggle" }) -- add or remove bookmark at current line
+        map("n", "mt", bm.bookmark_toggle, { desc = "bookmark_toggle" }) -- add or remove bookmark at current line
         map("n", "me", bm.bookmark_ann, { desc = "bookmark_edit" }) -- add or edit mark annotation at current line
         map("n", "mc", bm.bookmark_clean, { desc = "bookmark_clean" }) -- clean all marks in local buffer
         map("n", "ml", bm.bookmark_list) -- show marked file list in quickfix window

@@ -28,12 +28,6 @@ map(
   { desc = "Toggle comment" }
 )
 
--- lsp
-map("n", "<leader>rn", function()
-  --require("nvchad.renamer").open()
-  vim.lsp.buf.rename()
-end, { desc = "LSP rename" })
-
 -- telescope
 local telescope_builtin = require "telescope.builtin"
 map("n", "<leader>f", function() end, { desc = "Telescope finds" })
