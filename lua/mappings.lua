@@ -53,12 +53,12 @@ map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = 
 map("n", "<leader>fs", function()
   telescope_builtin.lsp_document_symbols { symbol_width = 60, layout_strategy = "horizontal" }
 end, { desc = "Telescope finds" })
--- map("n", "<leader>fm", function()
---   telescope_builtin.marks { symbol_width = 60, layout_strategy = "horizontal" }
--- end, { desc = "Mark" })
 map("n", "<leader>fm", function()
-  require("telescope").extensions.bookmarks.list()
+  telescope_builtin.marks { symbol_width = 60, layout_strategy = "horizontal" }
 end, { desc = "Mark" })
+-- map("n", "<leader>fm", function()
+--   require("telescope").extensions.bookmarks.list()
+-- end, { desc = "Mark" })
 map("n", "gd", function()
   telescope_builtin.lsp_definitions()
 end, { desc = "lsp_definitions" })

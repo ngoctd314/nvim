@@ -2,13 +2,15 @@ return {
   "tomasky/bookmarks.nvim",
   -- after = "telescope.nvim",
   event = "VimEnter",
+  enabled = false,
   config = function()
-    local hash = string.gsub(vim.fn["getcwd"](), "/", "_")
+    -- local hash = string.gsub(vim.fn["getcwd"](), "/", "_")
 
     require("bookmarks").setup {
       -- sign_priority = 8,  --set bookmark sign priority to cover other sign
 
-      save_file = vim.fn.expand(string.format("$HOME/.cache/nvim/bookmark/.%s", hash)), -- bookmarks save file path
+      save_file = vim.fn.expand "$HOME/.bookmarks", -- bookmarks save file path
+      -- save_file = vim.fn.expand(string.format("$HOME/.cache/nvim/bookmark/.%s", hash)), -- bookmarks save file path
       signs = {
         -- add = { hl = "BookMarksAdd", text = "", numhl = "BookMarksAddNr", linehl = "BookMarksAddLn" },
         -- ann = { hl = "BookMarksAnn", text = "", numhl = "BookMarksAnnNr", linehl = "BookMarksAnnLn" },

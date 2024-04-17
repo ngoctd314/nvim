@@ -55,7 +55,7 @@ local options = {
     },
   },
 
-  extensions_list = { "themes", "bookmarks" },
+  extensions_list = { "themes" },
   extensions = {
     fzf = {
       fuzzy = true,
