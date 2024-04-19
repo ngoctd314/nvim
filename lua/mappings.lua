@@ -3,6 +3,7 @@ require "nvchad.mappings"
 local map = vim.keymap.set
 
 map("n", "P", "<cmd>b#<cr>", { desc = "Switch oldfiles" })
+map("n", "<leader>h", "<cmd>nohl<cr>", { desc = "nohl" })
 
 map("n", "<leader>q", function()
   vim.lsp.buf.code_action()

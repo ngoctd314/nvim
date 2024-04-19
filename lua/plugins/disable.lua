@@ -1,4 +1,6 @@
 return {
-  "NvChad/nvterm",
-  enabled = false,
+  {
+    "NvChad/nvterm",
+    enabled = false,
+  },
 }
