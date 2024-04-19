@@ -1,27 +1,5 @@
 return {
   {
-    "MattesGroeger/vim-bookmarks",
-    event = "VimEnter",
-    enabled = false,
-    init = function()
-      vim.g.bookmark_display_annotation = 1
-      vim.g.bookmark_save_per_working_dir = 1
-      vim.g.bookmark_annotation_sign = "M"
-      vim.g.bookmark_no_default_key_mappings = 1
-      vim.g.bookmark_location_list = 1
-      vim.g.bookmark_show_toggle_warning = 0
-    end,
-    config = function()
-      local map = vim.keymap.set
-      map("n", "mt", "<cmd>BookmarkToggle<cr>", { desc = "BookmarkToggle" })
-      map("n", "ma", "<cmd>BookmarkAnnotate<cr>", { desc = "BookmarkAnnotate" })
-      map("n", "ml", "<cmd>BookmarkShowAll<cr>", { desc = "BookmarkShowAll" })
-      map("n", "mc", "<cmd>BookmarkClearAll<cr>", { desc = "BookmarkClearAll" })
-      map("n", "mp", "<cmd>BookmarkPrev<cr>", { desc = "BookmarkPrev" })
-      map("n", "mn", "<cmd>BookmarkNext<cr>", { desc = "BookmarkNext" })
-    end,
-  },
-  {
     "ngoctd314/marks.nvim",
     enabled = true,
     init = function()
@@ -61,15 +39,51 @@ return {
         mappings = {
           -- set_next = "m,",
           -- preview = "m:",
-          set_bookmark0 = "ms",
-          delete_bookmark0 = "mc",
-          delete_bookmark = "md",
-          delete_buf = "mD",
+          -- set_bookmark0 = "ms",
+          -- delete_bookmark0 = "mc",
+          -- delete_bookmark = "md",
+          -- delete_buf = "mD",
         },
       }
-      local map = vim.keymap.set
-      map("n", "ml", "<cmd>BookmarksListAll<cr>", { desc = "MarksListAll" })
     end,
-    config = function() end,
+    config = function()
+      local map = vim.keymap.set
+      local marks = require "marks"
+      map("n", "ml", "<cmd>BookmarksListAll<cr>", { desc = "MarksListAll" })
+      map("n", "ms", function()
+        marks.set_bookmark0()
+      end, { desc = "set_bookmark0" })
+      map("n", "mc", function()
+        marks.delete_bookmark0()
+      end, { desc = "set_bookmark0" })
+      map("n", "md", function()
+        marks.delete_bookmark()
+      end, { desc = "delete_bookmark" })
+      map("n", "mD", function()
+        marks.delete_buf()
+      end, { desc = "delete_buf" })
+    end,
+  },
+  {
+    "MattesGroeger/vim-bookmarks",
+    event = "VimEnter",
+    enabled = false,
+    init = function()
+      vim.g.bookmark_display_annotation = 1
+      vim.g.bookmark_save_per_working_dir = 1
+      vim.g.bookmark_annotation_sign = "M"
+      vim.g.bookmark_no_default_key_mappings = 1
+      vim.g.bookmark_location_list = 1
+      vim.g.bookmark_show_toggle_warning = 0
+    end,
+    config = function()
+      local map = vim.keymap.set
+      map("n", "mt", "<cmd>BookmarkToggle<cr>", { desc = "BookmarkToggle" })
+      map("n", "ma", "<cmd>BookmarkAnnotate<cr>", { desc = "BookmarkAnnotate" })
+      map("n", "ml", "<cmd>BookmarkShowAll<cr>", { desc = "BookmarkShowAll" })
+      map("n", "mc", "<cmd>BookmarkClearAll<cr>", { desc = "BookmarkClearAll" })
+      map("n", "mp", "<cmd>BookmarkPrev<cr>", { desc = "BookmarkPrev" })
+      map("n", "mn", "<cmd>BookmarkNext<cr>", { desc = "BookmarkNext" })
+    end,
   },
 }
