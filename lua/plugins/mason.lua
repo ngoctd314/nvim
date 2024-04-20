@@ -5,8 +5,10 @@ return {
       "lua-language-server",
       "stylua",
       "gopls",
+      "gofmt",
       "jdtls",
       "prettier",
+      "clang-format",
     },
   },
 }

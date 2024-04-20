@@ -10,36 +10,32 @@ local on_attach = function(client, bufnr)
     return { buffer = bufnr, desc = desc }
   end
 
-  -- map("n", "gD", vim.lsp.buf.declaration, opts "Lsp Go to declaration")
-  -- map("n", "gd", vim.lsp.buf.definition, opts "Lsp Go to definition")
-  -- map("n", "K", vim.lsp.buf.hover, opts "Lsp hover information")
-  -- map("n", "gi", vim.lsp.buf.implementation, opts "Lsp Go to implementation")
-  -- map("i", "<C-a>", vim.lsp.buf.signature_help, opts "Lsp Show signature help")
-  -- map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts "Lsp Add workspace folder")
-  -- map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts "Lsp Remove workspace folder")
-
-  -- map("n", "<leader>wl", function()
-  --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  -- end, opts "Lsp List workspace folders")
-
-  -- map("n", "<leader>D", vim.lsp.buf.type_definition, opts "Lsp Go to type definition")
-  -- vim.cmd [[
-  -- augroup lsp
-  --     autocmd!
-  --     autocmd CursorHoldI *.* lua vim.lsp.buf.signature_help()
-  -- augroup END
-  -- ]]lsp
-
   map("n", "<leader>rn", function()
     require "nvchad.lsp.renamer"()
   end, opts "Lsp NvRenamer")
 
-  -- map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts "Lsp Code action")
-  -- map("n", "gr", vim.lsp.buf.references, opts "Lsp Show references")
-
   -- setup signature popup
   if conf.signature and client.server_capabilities.signatureHelpProvider then
-    require("nvchad.lsp.signature").setup(client, bufnr)
+    -- require("nvchad.lsp.signature").setup(client, bufnr)
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+      border = "single",
+    })
+
+    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+      border = "single",
+      focusable = false,
+      relative = "cursor",
+      silent = true,
+    })
+    local group = vim.api.nvim_create_augroup("LspSignature", { clear = false })
+    vim.api.nvim_clear_autocmds { group = group, buffer = bufnr }
+    vim.api.nvim_create_autocmd("TextChangedI", {
+      group = group,
+      buffer = bufnr,
+      callback = function()
+        vim.lsp.buf.signature_help()
+      end,
+    })
   end
 end
 
@@ -164,22 +160,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-local signs = {
-  -- Error = "",
-  -- Warn = "",
-  -- Hint = "💡",
-  -- Infor = "",
-  Error = "E",
-  Warn = "W",
-  Hint = "H",
-  Infor = "I",
-}
-
-for type, icon in pairs(signs) do
-  local hl = "DiagnosticSign" .. type
-  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
 return {
   "neovim/nvim-lspconfig",
+  config = function()
+    local signs = {
+      Error = "E",
+      Warn = "W",
+      Hint = "H",
+      Infor = "I",
+    }
+
+    for type, icon in pairs(signs) do
+      local hl = "DiagnosticSign" .. type
+      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+    end
+
+    vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#ef5350" })
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = "#ef5350" })
+  end,
 }
