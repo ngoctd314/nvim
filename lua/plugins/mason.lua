@@ -6,6 +6,7 @@ return {
       "stylua",
       "gopls",
       "jdtls",
+      "prettier",
     },
   },
 }
