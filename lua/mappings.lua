@@ -29,7 +29,7 @@ map(
   { desc = "Toggle comment" }
 )
 
--- telescope
+-- telescope search
 local telescope_builtin = require "telescope.builtin"
 map("n", "<leader>f", function() end, { desc = "Telescope finds" })
 map("n", "<leader>ff", function()
@@ -53,13 +53,15 @@ map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Current buffer fuzzy" })
 map("n", "<leader>fs", function()
   telescope_builtin.lsp_document_symbols { symbol_width = 60, layout_strategy = "horizontal" }
-end, { desc = "Telescope finds" })
+end, { desc = "Symbols" })
 map("n", "<leader>fm", function()
   telescope_builtin.marks { symbol_width = 60, layout_strategy = "horizontal" }
 end, { desc = "Mark" })
--- map("n", "<leader>fm", function()
---   require("telescope").extensions.bookmarks.list()
--- end, { desc = "Mark" })
+map("n", "<leader>fd", function()
+  telescope_builtin.diagnostics()
+end, { desc = "diagnostics" })
+
+-- telescope navigate
 map("n", "gd", function()
   telescope_builtin.lsp_definitions()
 end, { desc = "lsp_definitions" })

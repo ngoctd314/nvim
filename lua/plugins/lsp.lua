@@ -175,7 +175,8 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
     end
 
-    vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = "#ef5350" })
-    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = "#ef5350" })
+    local error_color = "#ff2852"
+    vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = error_color })
+    vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = error_color })
   end,
 }
