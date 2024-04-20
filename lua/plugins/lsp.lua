@@ -23,12 +23,12 @@ local on_attach = function(client, bufnr)
   -- end, opts "Lsp List workspace folders")
 
   -- map("n", "<leader>D", vim.lsp.buf.type_definition, opts "Lsp Go to type definition")
-  vim.cmd [[
-  augroup lsp
-      autocmd!
-      autocmd CursorHoldI *.* lua vim.lsp.buf.signature_help()
-  augroup END
-  ]]
+  -- vim.cmd [[
+  -- augroup lsp
+  --     autocmd!
+  --     autocmd CursorHoldI *.* lua vim.lsp.buf.signature_help()
+  -- augroup END
+  -- ]]lsp
 
   map("n", "<leader>rn", function()
     require "nvchad.lsp.renamer"()
@@ -182,5 +182,4 @@ end
 
 return {
   "neovim/nvim-lspconfig",
-  config = function() end,
 }

@@ -107,6 +107,7 @@ local options = {
     { name = "buffer" },
     { name = "nvim_lua" },
     { name = "path" },
+    { name = "nvim_lsp_signature_help" },
   },
 }
 
@@ -118,6 +119,9 @@ local options = {
 return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
+  dependencies = {
+    { "hrsh7th/cmp-nvim-lsp-signature-help" },
+  },
   config = function()
     require("cmp").setup(options)
   end,
