@@ -55,7 +55,7 @@ local options = {
     },
   },
 
-  extensions_list = { "themes" },
+  extensions_list = { "themes", "aerial" },
   extensions = {
     fzf = {
       fuzzy = true,
@@ -68,7 +68,11 @@ local options = {
 
 return {
   "nvim-telescope/telescope.nvim",
-  dependencies = "nvim-treesitter/nvim-treesitter",
+  dependencies = {
+    "stevearc/aerial.nvim",
+    "nvim-treesitter/nvim-treesitter",
+    "nvim-tree/nvim-web-devicons",
+  },
   cmd = "Telescope",
   init = function() end,
   config = function()
@@ -76,6 +80,12 @@ return {
     local telescope = require "telescope"
     telescope.setup(options)
 
+    require("aerial").setup {
+      icons = {
+        Method = "󰆧",
+        Function = "󰆧",
+      },
+    }
     -- load extensions
     for _, ext in ipairs(options.extensions_list) do
       telescope.load_extension(ext)

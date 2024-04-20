@@ -52,7 +52,8 @@ map("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>", { desc = "Oldfiles" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Current buffer fuzzy" })
 map("n", "<leader>fs", function()
-  telescope_builtin.lsp_document_symbols { symbol_width = 60, layout_strategy = "horizontal" }
+  -- telescope_builtin.lsp_document_symbols { symbol_width = 60, layout_strategy = "horizontal" }
+  require("telescope").extensions.aerial.aerial { symbol_width = 60, layout_strategy = "horizontal" }
 end, { desc = "Symbols" })
 map("n", "<leader>fm", function()
   telescope_builtin.marks { symbol_width = 60, layout_strategy = "horizontal" }
