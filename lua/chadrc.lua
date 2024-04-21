@@ -25,6 +25,8 @@ M.ui = {
     TelescopePromptNormal = { fg = pallete.normal.fg, bg = pallete.normal.bg },
     TelescopePromptPrefix = { bg = pallete.normal.bg },
     TelescopePromptBorder = { bg = pallete.normal.bg },
+    TelescopeResultsTitle = { fg = pallete.normal.border, bg = "#89b4fa" },
+
     NormalFloat = { bg = pallete.normal.bg },
 
     NvimTreeNormal = { fg = pallete.normal.fg, bg = pallete.normal.bg },

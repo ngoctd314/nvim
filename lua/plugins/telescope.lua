@@ -55,13 +55,20 @@ local options = {
     },
   },
 
-  extensions_list = { "themes", "aerial" },
+  extensions_list = { "themes", "aerial", "fzf", "media_files" },
   extensions = {
     fzf = {
       fuzzy = true,
       override_generic_sorter = true,
       override_file_sorter = true,
       case_mode = "smart_case",
+    },
+    media_files = {
+      -- filetypes whitelist
+      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+      filetypes = { "png", "webp", "jpg", "jpeg" },
+      -- find command (defaults to `fd`)
+      find_cmd = "fd",
     },
   },
 }
@@ -72,6 +79,8 @@ return {
     "stevearc/aerial.nvim",
     "nvim-treesitter/nvim-treesitter",
     "nvim-tree/nvim-web-devicons",
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+    { "nvim-lua/popup.nvim", "nvim-telescope/telescope-media-files.nvim" },
   },
   cmd = "Telescope",
   init = function() end,
