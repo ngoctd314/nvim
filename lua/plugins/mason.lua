@@ -6,6 +6,7 @@ return {
       "stylua",
       "gopls",
       "gofmt",
+      "goimports",
       "jdtls",
       "prettier",
       "clang-format",
