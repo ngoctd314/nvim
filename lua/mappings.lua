@@ -48,7 +48,9 @@ map("n", "<leader>fg", function()
     layout_strategy = "horizontal", -- horizontal, vertical
   }
 end, { desc = "Live grep" })
-map("n", "<leader>fo", "<cmd>Telescope oldfiles<cr>", { desc = "Oldfiles" })
+map("n", "<leader>fo", function()
+  telescope_builtin.oldfiles { only_cwd = true }
+end, { desc = "Oldfiles" })
 map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
 map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Current buffer fuzzy" })
 map("n", "<leader>fs", function()

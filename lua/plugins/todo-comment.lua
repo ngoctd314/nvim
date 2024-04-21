@@ -4,6 +4,7 @@ return {
   cmd = { "TodoTelescope" },
   lazy = false,
   config = true,
+  enable = false,
   init = function()
     require("todo-comments").setup {}
   end,
