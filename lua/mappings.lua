@@ -67,7 +67,7 @@ end, { desc = "Symbols" })
 map("n", "<leader>fd", function()
   telescope_builtin.diagnostics()
 end, { desc = "diagnostics" })
-map("n", "<leader>fm", "<cmd>Telescope feat-marks todo<cr>", { desc = "Feat marks" })
+-- map("n", "<leader>fm", "<cmd>Telescope feat-marks todo<cr>", { desc = "Feat marks" })
 -- map("n", "<leader>fm", function()
 --   telescope_builtin.marks { symbol_width = 60, layout_strategy = "horizontal" }
 -- end, { desc = "Mark" })
