@@ -26,6 +26,7 @@ local options = {
         results_width = 0.8,
       },
       vertical = {
+        prompt_position = "top",
         mirror = false,
       },
       width = 0.87,

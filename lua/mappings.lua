@@ -37,7 +37,7 @@ map("n", "<leader>ff", function()
     follow = true,
     no_ignore = true,
     hidden = true,
-    layout_strategy = "horizontal", -- horizontal, vertical
+    layout_strategy = "vertical", -- horizontal, vertical
   }
 end, { desc = "Find files" })
 map("n", "<leader>fg", function()
@@ -51,18 +51,27 @@ end, { desc = "Live grep" })
 map("n", "<leader>fo", function()
   telescope_builtin.oldfiles { only_cwd = true }
 end, { desc = "Oldfiles" })
-map("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
-map("n", "<leader>fz", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Current buffer fuzzy" })
+map("n", "<leader>fb", function()
+  telescope_builtin.buffers {}
+end, { desc = "Buffers" })
+map("n", "<leader>fz", function()
+  telescope_builtin.current_buffer_fuzzy_find {
+    layout_strategy = "horizontal", -- horizontal, vertical
+  }
+end, { desc = "Current buffer fuzzy" })
+
 map("n", "<leader>fs", function()
   -- telescope_builtin.lsp_document_symbols { symbol_width = 60, layout_strategy = "horizontal" }
   require("telescope").extensions.aerial.aerial { symbol_width = 60, layout_strategy = "horizontal" }
 end, { desc = "Symbols" })
-map("n", "<leader>fm", function()
-  telescope_builtin.marks { symbol_width = 60, layout_strategy = "horizontal" }
-end, { desc = "Mark" })
 map("n", "<leader>fd", function()
   telescope_builtin.diagnostics()
 end, { desc = "diagnostics" })
+map("n", "<leader>fm", "<cmd>Telescope feat-marks todo<cr>", { desc = "Feat marks" })
+-- map("n", "<leader>fm", function()
+--   telescope_builtin.marks { symbol_width = 60, layout_strategy = "horizontal" }
+-- end, { desc = "Mark" })
+map("n", "<leader>ft", "<cmd>Telescope todo-comments todo<cr>", { desc = "Todo" })
 
 -- telescope navigate
 map("n", "gd", function()
