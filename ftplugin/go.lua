@@ -1,5 +1,5 @@
 local settings = {
-  shiftwidth = 4,
+  shiftwidth = 3,
   tabstop = 3,
   softtabstop = 3,
 }
