@@ -6,6 +6,9 @@ local pallete = {
     fg = "#c6c8d1",
     bg = "#171521",
     border = "#313244",
+    blue = "#89b4fa",
+    red = "#F38BA8",
+    black = "#1E1D2D",
   },
 }
 
@@ -14,6 +17,11 @@ local M = {}
 
 M.ui = {
   theme = "catppuccin",
+  ---@type Base46HLGroupsList
+  hl_add = {
+    RenamerBorder = { fg = pallete.normal.red },
+    RenamerTitle = { fg = pallete.normal.black, bg = pallete.normal.red },
+  },
   ---@type Base46HLGroupsList
   hl_override = {
     Normal = { fg = pallete.normal.fg, bg = pallete.normal.bg, bold = true },
@@ -25,7 +33,7 @@ M.ui = {
     TelescopePromptNormal = { fg = pallete.normal.fg, bg = pallete.normal.bg },
     TelescopePromptPrefix = { bg = pallete.normal.bg },
     TelescopePromptBorder = { bg = pallete.normal.bg },
-    TelescopeResultsTitle = { fg = pallete.normal.border, bg = "#89b4fa" },
+    TelescopeResultsTitle = { fg = pallete.normal.border, bg = pallete.normal.blue },
 
     NormalFloat = { bg = pallete.normal.bg },
 
