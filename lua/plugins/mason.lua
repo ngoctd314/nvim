@@ -5,11 +5,11 @@ return {
       "lua-language-server",
       "stylua",
       "gopls",
-      "gofmt",
       "goimports",
       "jdtls",
       "prettier",
       "clang-format",
+      "lemminx",
     },
   },
 }

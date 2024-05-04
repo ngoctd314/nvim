@@ -2,6 +2,8 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+map("n", "U", "<cmd>redo<cr>", { desc = "Redo" })
+
 map("n", "P", "<cmd>b#<cr>", { desc = "Switch oldfiles" })
 map("n", "<leader>h", "<cmd>nohl<cr>", { desc = "nohl" })
 
@@ -37,7 +39,7 @@ map("n", "<leader>ff", function()
     follow = true,
     no_ignore = true,
     hidden = true,
-    layout_strategy = "vertical", -- horizontal, vertical
+    layout_strategy = "horizontal", -- horizontal, vertical
   }
 end, { desc = "Find files" })
 map("n", "<leader>fg", function()
@@ -94,3 +96,6 @@ end, { desc = "diagnostic.goto_next" })
 
 -- nvimtree
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle nvimtree" })
+
+-- git
+map("n", "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Gitsigns blame_line" })

@@ -135,6 +135,14 @@ lspconfig.lua_ls.setup {
   },
 }
 
+-- xml
+lspconfig.lemminx.setup {
+  on_init = on_init,
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "xml" },
+}
+
 -- javascript
 -- python
 
