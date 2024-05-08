@@ -7,6 +7,7 @@ local options = {
     python = { "clang-format" },
     yaml = { "prettier" },
     yml = { "prettier" },
+    sql = { "sql_formatter" },
     -- xml = { "lemminx" },
     -- html = { "prettier" },
   },

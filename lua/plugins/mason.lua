@@ -10,6 +10,9 @@ return {
       "prettier",
       "clang-format",
       "lemminx",
+      "sql-formatter",
+      "sqlls",
+      "sqls",
     },
   },
 }

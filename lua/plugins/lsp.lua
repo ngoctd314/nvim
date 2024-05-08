@@ -143,6 +143,17 @@ lspconfig.lemminx.setup {
   filetypes = { "xml" },
 }
 
+-- sql
+lspconfig.sqls.setup {
+  on_init = on_init,
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "sql" },
+  root_dir = function(_)
+    return vim.loop.cwd()
+  end,
+}
+
 -- javascript
 -- python
 
