@@ -39,7 +39,7 @@ map("n", "<leader>ff", function()
     follow = true,
     no_ignore = true,
     hidden = true,
-    layout_strategy = "horizontal", -- horizontal, vertical
+    layout_strategy = "vertical", -- horizontal, vertical
   }
 end, { desc = "Find files" })
 map("n", "<leader>fg", function()
