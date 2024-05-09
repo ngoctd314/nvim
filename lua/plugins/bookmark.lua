@@ -1,6 +1,6 @@
 return {
   {
-    "chentoast/marks.nvim",
+    "ngoctd314/marks.nvim",
     enabled = true,
     init = function()
       require("marks").setup {
