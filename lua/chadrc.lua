@@ -51,6 +51,13 @@ M.ui = {
     separator_style = "default",
     overriden_modules = nil,
   },
+  tabufline = {
+    enabled = true,
+    lazyload = true,
+    order = { "treeOffset", "buffers", "tabs" },
+    -- order = { "treeOffset", "buffers", "tabs", "btns" },
+    modules = nil,
+  },
 }
 
 return M
