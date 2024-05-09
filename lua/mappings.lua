@@ -40,6 +40,13 @@ map("n", "<leader>ff", function()
     no_ignore = true,
     hidden = true,
     layout_strategy = "vertical", -- horizontal, vertical
+    layout_config = {
+      vertical = {
+        prompt_position = "top",
+        mirror = true,
+        preview_cutoff = 120,
+      },
+    },
   }
 end, { desc = "Find files" })
 map("n", "<leader>fg", function()
@@ -48,23 +55,55 @@ map("n", "<leader>fg", function()
     no_ignore = true,
     hidden = true,
     layout_strategy = "horizontal", -- horizontal, vertical
+    layout_config = {
+      width = 0.9,
+      height = 0.9,
+    },
   }
 end, { desc = "Live grep" })
 map("n", "<leader>fo", function()
-  telescope_builtin.oldfiles { only_cwd = true }
+  telescope_builtin.oldfiles {
+    only_cwd = true,
+    mirror = false,
+    layout_strategy = "vertical",
+    layout_config = {
+      vertical = {
+        prompt_position = "top",
+        mirror = true,
+        preview_cutoff = 120,
+      },
+    },
+  }
 end, { desc = "Oldfiles" })
 map("n", "<leader>fb", function()
   telescope_builtin.buffers {}
 end, { desc = "Buffers" })
 map("n", "<leader>fz", function()
   telescope_builtin.current_buffer_fuzzy_find {
-    layout_strategy = "horizontal", -- horizontal, vertical
+    layout_strategy = "vertical", -- horizontal, vertical
+    layout_config = {
+      vertical = {
+        prompt_position = "top",
+        mirror = true,
+        preview_cutoff = 120,
+      },
+    },
   }
 end, { desc = "Current buffer fuzzy" })
 
 map("n", "<leader>fs", function()
   -- telescope_builtin.lsp_document_symbols { symbol_width = 60, layout_strategy = "horizontal" }
-  require("telescope").extensions.aerial.aerial { symbol_width = 60, layout_strategy = "horizontal" }
+  require("telescope").extensions.aerial.aerial {
+    symbol_width = 60,
+    layout_strategy = "vertical",
+    layout_config = {
+      vertical = {
+        prompt_position = "top",
+        mirror = true,
+        preview_cutoff = 120,
+      },
+    },
+  }
 end, { desc = "Symbols" })
 map("n", "<leader>fd", function()
   telescope_builtin.diagnostics()

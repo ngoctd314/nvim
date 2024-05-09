@@ -34,6 +34,18 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "nvchad.autocmds"
 
+local autocmd = vim.api.nvim_create_autocmd
+-- auto fold
+autocmd("BufWinLeave", {
+  pattern = "*",
+  command = "silent! mkview",
+})
+
+autocmd("BufWinEnter", {
+  pattern = "*",
+  command = "silent! loadview",
+})
+
 vim.schedule(function()
   require "mappings"
   require "mappings_unuse"
