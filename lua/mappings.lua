@@ -46,6 +46,8 @@ map("n", "<leader>ff", function()
         mirror = true,
         preview_cutoff = 120,
       },
+      width = 0.7,
+      height = 0.90,
     },
   }
 end, { desc = "Find files" })
@@ -122,7 +124,12 @@ map("n", "gi", function()
   telescope_builtin.lsp_implementations()
 end, { desc = "lsp_implementations" })
 map("n", "gr", function()
-  telescope_builtin.lsp_references()
+  telescope_builtin.lsp_references {
+    layout_config = {
+      width = 0.9,
+      height = 0.9,
+    },
+  }
 end, { desc = "lsp_references" })
 
 -- diagnostic
@@ -138,3 +145,7 @@ map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle nvimtree" })
 
 -- git
 map("n", "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Gitsigns blame_line" })
+
+-- chat gpt
+-- map("n", "<leader>at", "<cmd>ChatGPT<cr>", { desc = "Open ChatGPT" })
+-- map("v", "<leader>ae", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "Open ChatGPT edit with instruction" })
