@@ -118,17 +118,16 @@ map("n", "<leader>ft", "<cmd>Telescope todo-comments todo<cr>", { desc = "Todo" 
 
 -- telescope navigate
 map("n", "gd", function()
-  telescope_builtin.lsp_definitions()
+  telescope_builtin.lsp_definitions { layout_strategy = "vertical" }
 end, { desc = "lsp_definitions" })
 map("n", "gi", function()
-  telescope_builtin.lsp_implementations()
+  telescope_builtin.lsp_implementations {
+    layout_strategy = "vertical",
+  }
 end, { desc = "lsp_implementations" })
 map("n", "gr", function()
   telescope_builtin.lsp_references {
-    layout_config = {
-      width = 0.9,
-      height = 0.9,
-    },
+    layout_strategy = "vertical",
   }
 end, { desc = "lsp_references" })
 
