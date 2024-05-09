@@ -19,26 +19,48 @@ return {
 
       -- setup signature popup
       if conf.signature and client.server_capabilities.signatureHelpProvider then
-        require("nvchad.lsp.signature").setup(client, bufnr)
-        -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-        --   border = "single",
-        -- })
+        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+          border = "single",
+          max_width = 120,
+          focusable = false,
+          relative = "cursor",
+          silent = true,
+        })
+
+        vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+          border = "single",
+          max_width = 120,
+          focusable = false,
+          relative = "cursor",
+          silent = true,
+        })
+        local group = vim.api.nvim_create_augroup("LspSignature", { clear = false })
+        vim.api.nvim_clear_autocmds { group = group, buffer = bufnr }
+
+        local triggerChars = client.server_capabilities.signatureHelpProvider.triggerCharacters
+
+        local check_triggeredChars = function(triggerCharsParams)
+          local cur_line = vim.api.nvim_get_current_line()
+          local pos = vim.api.nvim_win_get_cursor(0)[2]
+
+          cur_line = cur_line:gsub("%s+$", "") -- rm trailing spaces
+
+          for _, char in ipairs(triggerCharsParams) do
+            if cur_line:sub(pos, pos) == char then
+              return true
+            end
+          end
+        end
+        vim.api.nvim_create_autocmd("TextChangedI", {
+          group = group,
+          buffer = bufnr,
+          callback = function()
+            if check_triggeredChars(triggerChars) then
+              vim.lsp.buf.signature_help()
+            end
+          end,
+        })
         --
-        -- vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-        --   border = "single",
-        --   focusable = false,
-        --   relative = "cursor",
-        --   silent = true,
-        -- })
-        -- local group = vim.api.nvim_create_augroup("LspSignature", { clear = false })
-        -- vim.api.nvim_clear_autocmds { group = group, buffer = bufnr }
-        -- vim.api.nvim_create_autocmd("TextChangedI", {
-        --   group = group,
-        --   buffer = bufnr,
-        --   callback = function()
-        --     vim.lsp.buf.signature_help()
-        --   end,
-        -- })
       end
     end
 
