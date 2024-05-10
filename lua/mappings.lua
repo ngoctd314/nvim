@@ -143,8 +143,13 @@ end, { desc = "diagnostic.goto_next" })
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle nvimtree" })
 
 -- git
+map("n", "<leader>g", function() end, { desc = "Git" })
 map("n", "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Gitsigns blame_line" })
 
+-- re
+map("n", "<leader>r", function() end, { desc = "re" })
+
 -- chat gpt
--- map("n", "<leader>at", "<cmd>ChatGPT<cr>", { desc = "Open ChatGPT" })
--- map("v", "<leader>ae", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "Open ChatGPT edit with instruction" })
+map("n", "<leader>c", function() end, { desc = "chatgpt, current context" })
+map("n", "<leader>cp", "<cmd>ChatGPT<cr>", { desc = "Open ChatGPT" })
+map("v", "<leader>ci", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "Open ChatGPT edit with instruction" })

@@ -13,18 +13,13 @@ return {
       require("chatgpt").setup {
         api_key_cmd = "gpg --decrypt " .. home .. "/data/secret/chatgpt-apikey.txt.gpg",
         --   yank_register = "+",
-        --   edit_with_instructions = {
-        --     diff = false,
-        --     keymaps = {
-        --       close = "<C-c>",
-        --       accept = "<C-y>",
-        --       toggle_diff = "<C-d>",
-        --       toggle_settings = "<C-o>",
-        --       toggle_help = "<C-h>",
-        --       cycle_windows = "<Tab>",
-        --       use_output_as_input = "<C-i>",
-        --     },
-        --   },
+        edit_with_instructions = {
+          -- diff = false,
+          keymaps = {
+            close = "<leader>x",
+            use_output_as_input = "<C-p>",
+          },
+        },
         chat = {
           -- welcome_message = WELCOME_MESSAGE,
           loading_text = "Loading, please wait ...",
@@ -36,7 +31,7 @@ return {
           sessions_window = {
             active_sign = "  ",
             inactive_sign = "  ",
-            current_line_sign = "",
+            current_line_sign = " ",
             border = {
               style = "single",
               text = {
@@ -46,6 +41,9 @@ return {
             win_options = {
               winhighlight = "Normal:Normal,FloatBorder:FloatBorder",
             },
+          },
+          keymaps = {
+            close = "<leader>x",
           },
         },
         popup_layout = {
