@@ -42,7 +42,7 @@ return {
     config = function()
       local map = vim.keymap.set
       local marks = require "marks"
-      map("n", "ml", "<cmd>BookmarksListAll<cr>", { desc = "MarksListAll" })
+      map("n", "ml", "<cmd>Trouble mark<cr>", { desc = "MarksListAll" })
       map("n", "ms", function()
         marks.set_bookmark0()
       end, { desc = "set_bookmark0" })

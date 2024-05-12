@@ -3,8 +3,15 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   lazy = false,
   opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
+    position = "bottom", -- position of the list can be: bottom, top, left, right
+    height = 15, -- height of the trouble list when position is top or bottom
+    icons = false,
+    group = false, -- group results by file
+    indent_lines = false, -- add an indent guide below the fold icons
+    signs = {
+      -- icons / text used for a diagnostic
+      other = "M",
+    },
+    use_diagnostic_signs = true,
   },
 }

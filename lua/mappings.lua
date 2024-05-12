@@ -46,8 +46,8 @@ map("n", "<leader>ff", function()
         mirror = true,
         preview_cutoff = 120,
       },
-      width = 0.7,
-      height = 0.90,
+      width = 80,
+      height = 50,
     },
   }
 end, { desc = "Find files" })
@@ -57,10 +57,6 @@ map("n", "<leader>fg", function()
     no_ignore = true,
     hidden = true,
     layout_strategy = "horizontal", -- horizontal, vertical
-    layout_config = {
-      width = 0.9,
-      height = 0.9,
-    },
   }
 end, { desc = "Live grep" })
 map("n", "<leader>fo", function()
@@ -74,11 +70,27 @@ map("n", "<leader>fo", function()
         mirror = true,
         preview_cutoff = 120,
       },
+      width = 80,
+      height = 50,
     },
   }
 end, { desc = "Oldfiles" })
 map("n", "<leader>fb", function()
-  telescope_builtin.buffers {}
+  telescope_builtin.buffers {
+    follow = true,
+    no_ignore = true,
+    hidden = true,
+    layout_strategy = "vertical", -- horizontal, vertical
+    layout_config = {
+      vertical = {
+        prompt_position = "top",
+        mirror = true,
+        preview_cutoff = 120,
+      },
+      width = 80,
+      height = 50,
+    },
+  }
 end, { desc = "Buffers" })
 map("n", "<leader>fz", function()
   telescope_builtin.current_buffer_fuzzy_find {
@@ -97,14 +109,7 @@ map("n", "<leader>fs", function()
   -- telescope_builtin.lsp_document_symbols { symbol_width = 60, layout_strategy = "horizontal" }
   require("telescope").extensions.aerial.aerial {
     symbol_width = 60,
-    layout_strategy = "vertical",
-    layout_config = {
-      vertical = {
-        prompt_position = "top",
-        mirror = true,
-        preview_cutoff = 120,
-      },
-    },
+    layout_strategy = "horizontal",
   }
 end, { desc = "Symbols" })
 map("n", "<leader>fd", function()
