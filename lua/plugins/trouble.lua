@@ -8,6 +8,7 @@ return {
     icons = false,
     group = false, -- group results by file
     indent_lines = false, -- add an indent guide below the fold icons
+    padding = false,
     signs = {
       -- icons / text used for a diagnostic
       other = "M",
