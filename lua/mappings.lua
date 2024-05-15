@@ -155,6 +155,6 @@ map("n", "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Gitsigns blame_
 map("n", "<leader>r", function() end, { desc = "re" })
 
 -- chat gpt
-map("n", "<leader>c", function() end, { desc = "chatgpt, current context" })
-map("n", "<leader>cp", "<cmd>ChatGPT<cr>", { desc = "Open ChatGPT" })
-map("v", "<leader>ci", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "Open ChatGPT edit with instruction" })
+map("n", "<leader>s", function() end, { desc = "chatgpt, search" })
+map("n", "<leader>sp", "<cmd>ChatGPT<cr>", { desc = "Open ChatGPT" })
+map("v", "<leader>si", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "Open ChatGPT edit with instruction" })
