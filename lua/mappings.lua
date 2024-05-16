@@ -46,7 +46,7 @@ map("n", "<leader>ff", function()
         mirror = true,
         preview_cutoff = 120,
       },
-      width = 80,
+      width = 120,
       height = 50,
     },
   }
@@ -70,7 +70,7 @@ map("n", "<leader>fo", function()
         mirror = true,
         preview_cutoff = 120,
       },
-      width = 80,
+      width = 120,
       height = 50,
     },
   }
@@ -87,7 +87,7 @@ map("n", "<leader>fb", function()
         mirror = true,
         preview_cutoff = 120,
       },
-      width = 80,
+      width = 120,
       height = 50,
     },
   }

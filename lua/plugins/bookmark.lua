@@ -36,7 +36,6 @@ return {
           -- explicitly prompt for a virtual line annotation when setting a bookmark from this group.
           annotate = false,
         },
-        mappings = {},
       }
     end,
     config = function()

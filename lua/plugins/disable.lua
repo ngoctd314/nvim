@@ -1,6 +1,6 @@
 return {
   {
     "NvChad/nvterm",
-    enabled = false,
+    enabled = true,
   },
 }

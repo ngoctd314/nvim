@@ -48,5 +48,4 @@ autocmd("BufWinEnter", {
 
 vim.schedule(function()
   require "mappings"
-  require "mappings_unuse"
 end)
