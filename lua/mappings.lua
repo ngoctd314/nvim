@@ -36,6 +36,7 @@ local telescope_builtin = require "telescope.builtin"
 map("n", "<leader>f", function() end, { desc = "Telescope finds" })
 map("n", "<leader>ff", function()
   telescope_builtin.find_files {
+    prompt_title = "",
     follow = true,
     no_ignore = true,
     hidden = true,
@@ -61,6 +62,7 @@ map("n", "<leader>fg", function()
 end, { desc = "Live grep" })
 map("n", "<leader>fo", function()
   telescope_builtin.oldfiles {
+    prompt_title = "",
     only_cwd = true,
     mirror = false,
     layout_strategy = "vertical",
@@ -77,6 +79,7 @@ map("n", "<leader>fo", function()
 end, { desc = "Oldfiles" })
 map("n", "<leader>fb", function()
   telescope_builtin.buffers {
+    prompt_title = "",
     follow = true,
     no_ignore = true,
     hidden = true,
@@ -94,6 +97,7 @@ map("n", "<leader>fb", function()
 end, { desc = "Buffers" })
 map("n", "<leader>fz", function()
   telescope_builtin.current_buffer_fuzzy_find {
+    prompt_title = "",
     layout_strategy = "vertical", -- horizontal, vertical
     layout_config = {
       vertical = {
@@ -101,6 +105,8 @@ map("n", "<leader>fz", function()
         mirror = true,
         preview_cutoff = 120,
       },
+      width = 120,
+      height = 50,
     },
   }
 end, { desc = "Current buffer fuzzy" })
@@ -108,6 +114,7 @@ end, { desc = "Current buffer fuzzy" })
 map("n", "<leader>fs", function()
   -- telescope_builtin.lsp_document_symbols { symbol_width = 60, layout_strategy = "horizontal" }
   require("telescope").extensions.aerial.aerial {
+    prompt_title = "",
     symbol_width = 60,
     layout_strategy = "horizontal",
   }
