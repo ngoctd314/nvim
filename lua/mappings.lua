@@ -165,3 +165,6 @@ map("n", "<leader>r", function() end, { desc = "re" })
 map("n", "<leader>s", function() end, { desc = "chatgpt, search" })
 map("n", "<leader>sp", "<cmd>ChatGPT<cr>", { desc = "Open ChatGPT" })
 map("v", "<leader>si", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "Open ChatGPT edit with instruction" })
+
+-- mark
+map("n", "ga", "`a", { desc = "Goto mark a" })

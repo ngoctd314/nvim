@@ -172,6 +172,16 @@ return {
     lspconfig.sqls.setup {
       on_init = on_init,
       on_attach = on_attach,
+      settings = {
+        sqls = {
+          connections = {
+            {
+              driver = "mysql",
+              dataSourceName = "root:secret@tcp(192.168.49.2:30300)/ataodev",
+            },
+          },
+        },
+      },
       capabilities = capabilities,
       filetypes = { "sql" },
       root_dir = function(_)
