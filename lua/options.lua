@@ -12,5 +12,5 @@ opt.smartindent = true
 vim.wo.wrap = true
 vim.wo.linebreak = true
 
---opt.cursorline = true
---opt.cursorlineopt = "both" -- to enable cursorline!
+-- opt.cursorline = true
+-- opt.cursorlineopt = "both" -- to enable cursorline!

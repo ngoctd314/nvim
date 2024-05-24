@@ -46,6 +46,11 @@ autocmd("BufWinEnter", {
   command = "silent! loadview",
 })
 
+autocmd("TermOpen", {
+  pattern = "*",
+  command = "setlocal nonumber norelativenumber cursorline",
+})
+
 vim.schedule(function()
   require "mappings"
 end)

@@ -54,6 +54,8 @@ map("n", "<leader>ff", function()
 end, { desc = "Find files" })
 map("n", "<leader>fg", function()
   telescope_builtin.live_grep {
+    prompt_title = "",
+    preview_title = "",
     follow = true,
     no_ignore = true,
     hidden = true,
@@ -157,6 +159,7 @@ map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle nvimtree" })
 -- git
 map("n", "<leader>g", function() end, { desc = "Git" })
 map("n", "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Gitsigns blame_line" })
+map("n", "<leader>gs", "<cmd>Gitsigns toggle_signs<cr>", { desc = "Gitsigns toggle_signs" })
 
 -- re
 map("n", "<leader>r", function() end, { desc = "re" })
@@ -165,6 +168,3 @@ map("n", "<leader>r", function() end, { desc = "re" })
 map("n", "<leader>s", function() end, { desc = "chatgpt, search" })
 map("n", "<leader>sp", "<cmd>ChatGPT<cr>", { desc = "Open ChatGPT" })
 map("v", "<leader>si", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "Open ChatGPT edit with instruction" })
-
--- mark
-map("n", "ga", "`a", { desc = "Goto mark a" })
