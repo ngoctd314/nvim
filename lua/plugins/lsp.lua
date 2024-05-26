@@ -200,7 +200,6 @@ return {
 
         -- Buffer local mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
-        local opts = { buffer = args.buf }
         local client = vim.lsp.get_client_by_id(args.data.client_id)
 
         if client ~= nil and client.server_capabilities.hoverProvider then
@@ -208,7 +207,7 @@ return {
           vim.diagnostic.config {
             float = { border = "single" },
           }
-          vim.keymap.set("n", "S", vim.lsp.buf.hover, opts)
+          vim.keymap.set("n", "<leader>H", vim.lsp.buf.hover, { buffer = args.buf, desc = "lsp.hover" })
           vim.keymap.set("n", "K", vim.diagnostic.open_float, { buffer = args.buf })
         end
       end,
