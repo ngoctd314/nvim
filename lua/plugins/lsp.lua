@@ -207,7 +207,7 @@ return {
           vim.diagnostic.config {
             float = { border = "single" },
           }
-          vim.keymap.set("n", "<leader>H", vim.lsp.buf.hover, { buffer = args.buf, desc = "lsp.hover" })
+          vim.keymap.set("n", "S", vim.lsp.buf.hover, { buffer = args.buf, desc = "lsp.hover" })
           vim.keymap.set("n", "K", vim.diagnostic.open_float, { buffer = args.buf })
         end
       end,
