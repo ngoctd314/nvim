@@ -76,6 +76,11 @@ map("n", "<leader>fo", function()
       width = 120,
       height = 50,
     },
+    -- on_complete = {
+    --   function()
+    --     vim.cmd "stopinsert"
+    --   end,
+    -- },
   }
 end, { desc = "Oldfiles" })
 map("n", "<leader>fb", function()
@@ -128,6 +133,36 @@ end, { desc = "diagnostics" })
 --   telescope_builtin.marks { symbol_width = 60, layout_strategy = "horizontal" }
 -- end, { desc = "Mark" })
 map("n", "<leader>ft", "<cmd>Telescope todo-comments todo<cr>", { desc = "Todo" })
+-- harpoon
+map("n", "<leader>fh", function()
+  local harpoon = require "harpoon"
+  local conf = require("telescope.config").values
+  local file_paths = {}
+  for _, item in ipairs(harpoon:list().items) do
+    table.insert(file_paths, item.value)
+  end
+
+  require("telescope.pickers")
+    .new({}, {
+      prompt_title = "Harpoon",
+      finder = require("telescope.finders").new_table {
+        results = file_paths,
+      },
+      layout_strategy = "vertical", -- horizontal, vertical
+      layout_config = {
+        vertical = {
+          prompt_position = "top",
+          mirror = true,
+          preview_cutoff = 120,
+        },
+        width = 120,
+        height = 50,
+      },
+      sorter = conf.generic_sorter {},
+    })
+    :find()
+  -- end
+end, { desc = "Open harpoon window" })
 
 -- telescope navigate
 map("n", "gd", function()

@@ -7,3 +7,5 @@ map("n", "<leader>v", function() end, { desc = "unuse" })
 
 map({ "n", "t" }, "<A-i>", function() end, { desc = "terminal toggle floating term" })
 map({ "n", "t" }, "<A-h>", function() end, { desc = "terminal new horizontal term" })
+
+map("n", "<leader>h", function() end, { desc = "harpoon" })

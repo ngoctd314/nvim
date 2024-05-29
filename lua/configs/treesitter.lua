@@ -24,9 +24,9 @@ require("nvim-treesitter.configs").setup {
         ["as"] = "@class.outer",
         -- ["is"] = "@class.inner",
         ["al"] = "@loop.outer",
-        -- ["il"] = "@loop.inner",
+        ["il"] = "@loop.inner",
         ["ac"] = "@conditional.outer",
-        -- ["ic"] = "@conditional.inner",
+        ["ic"] = "@conditional.inner",
 
         -- ["aa"] = "@parameter.outer",
         -- ["ia"] = "@parameter.inner",

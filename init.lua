@@ -57,3 +57,4 @@ vim.schedule(function()
 end)
 
 require "configs.treesitter"
+require "configs.harpoon"
