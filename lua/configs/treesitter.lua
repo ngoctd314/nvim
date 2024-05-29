@@ -21,12 +21,12 @@ require("nvim-treesitter.configs").setup {
         -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
-        ["as"] = "@class.outer",
-        -- ["is"] = "@class.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
         ["al"] = "@loop.outer",
         ["il"] = "@loop.inner",
-        ["ac"] = "@conditional.outer",
-        ["ic"] = "@conditional.inner",
+        ["ai"] = "@conditional.outer",
+        ["ii"] = "@conditional.inner",
 
         -- ["aa"] = "@parameter.outer",
         -- ["ia"] = "@parameter.inner",
@@ -38,19 +38,19 @@ require("nvim-treesitter.configs").setup {
       set_jumps = true, -- whether to set jumps in the jumplist
       goto_next_start = {
         ["]f"] = "@function.outer",
-        ["]]"] = "@class.outer",
+        ["]c"] = "@class.outer",
       },
       goto_next_end = {
         ["]F"] = "@function.outer",
-        ["]["] = "@class.outer",
+        ["]C"] = "@class.outer",
       },
       goto_previous_start = {
         ["[f"] = "@function.outer",
-        ["[["] = "@class.outer",
+        ["[c"] = "@class.outer",
       },
       goto_previous_end = {
         ["[F"] = "@function.outer",
-        ["[]"] = "@class.outer",
+        ["[C"] = "@class.outer",
       },
     },
     swap = {
