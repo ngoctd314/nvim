@@ -126,7 +126,9 @@ map("n", "<leader>fs", function()
   }
 end, { desc = "Symbols" })
 map("n", "<leader>fd", function()
-  telescope_builtin.diagnostics()
+  telescope_builtin.diagnostics {
+    sort_by = "severity",
+  }
 end, { desc = "diagnostics" })
 -- map("n", "<leader>fm", "<cmd>Telescope feat-marks todo<cr>", { desc = "Feat marks" })
 -- map("n", "<leader>fm", function()
