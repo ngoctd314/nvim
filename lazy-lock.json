@@ -39,6 +39,7 @@
   "todo-comments.nvim": { "branch": "main", "commit": "08a4c6ec5c3d203e48a5843d2ff4168b8550bb40" },
   "trouble.nvim": { "branch": "main", "commit": "bda8de4205f06c3939b8b59e4da1f3713d04ea05" },
   "ui": { "branch": "v2.5", "commit": "0c283b6aed4eed585a497c9031b18b5009bfe4dd" },
+  "vim-tmux-navigator": { "branch": "master", "commit": "5b3c701686fb4e6629c100ed32e827edf8dad01e" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" },
   "zen-mode.nvim": { "branch": "main", "commit": "78557d972b4bfbb7488e17b5703d25164ae64e6a" }
 }
