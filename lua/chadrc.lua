@@ -19,8 +19,8 @@ M.ui = {
   theme = "catppuccin",
   ---@type Base46HLGroupsList
   hl_add = {
-    RenamerBorder = { fg = pallete.normal.red },
-    RenamerTitle = { fg = pallete.normal.black, bg = pallete.normal.red },
+    RenamerBorder = { fg = pallete.normal.border },
+    RenamerTitle = { fg = pallete.normal.red, bg = pallete.normal.bg },
   },
   ---@type Base46HLGroupsList
   hl_override = {

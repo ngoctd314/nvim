@@ -28,11 +28,11 @@ require("nvim-treesitter.configs").setup {
         ["ai"] = "@conditional.outer",
         ["ii"] = "@conditional.inner",
 
-        ["aa"] = "@call.outer",
-        ["ia"] = "@call.inner",
-        ["ak"] = "@statement.outer",
+        ["aF"] = "@call.outer",
+        ["aS"] = "@statement.outer",
+        ["ap"] = "@parameter.inner", -- duplicate paragraph
+        -- ["a"]
         -- ["ia"] = "@call.inner",
-        -- ["ia"] = "@parameter.inner",
         -- ["at"] = "@comment.outer",
       },
     },

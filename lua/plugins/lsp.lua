@@ -14,7 +14,7 @@ return {
       end
 
       map("n", "<leader>rn", function()
-        require "nvchad.lsp.renamer"()
+        vim.lsp.buf.rename()
       end, opts "Lsp NvRenamer")
 
       -- setup signature popup
