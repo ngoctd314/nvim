@@ -27,17 +27,11 @@ require("nvim-treesitter.configs").setup {
         ["il"] = "@loop.inner",
         ["ai"] = "@conditional.outer",
         ["ii"] = "@conditional.inner",
-
-        ["aF"] = "@call.outer",
-        ["aS"] = "@statement.outer",
-        ["ap"] = "@parameter.inner", -- duplicate paragraph
-        -- ["a"]
-        -- ["ia"] = "@call.inner",
-        -- ["at"] = "@comment.outer",
+        ["aP"] = "@parameter.inner",
       },
     },
     move = {
-      enable = true,
+      enable = false,
       set_jumps = true, -- whether to set jumps in the jumplist
       goto_next_start = {
         ["]f"] = "@function.outer",

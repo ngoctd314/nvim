@@ -206,8 +206,13 @@ map("n", "<leader>sp", "<cmd>ChatGPT<cr>", { desc = "Open ChatGPT" })
 map("v", "<leader>si", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "Open ChatGPT edit with instruction" })
 
 -- tmux
--- treesitter
 map("n", "<c-h>", "<cmd>TmuxNavigateLeft<cr>", { desc = "TmuxNavigateLeft" })
 map("n", "<c-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "TmuxNavigateDown" })
 map("n", "<c-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "TmuxNavigateUp" })
 --   { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+
+map("n", "]a", "`a", { desc = "go to mark a" })
+
+--
+-- map("n", "]}", "<cmd>call search('}')<cr>", { desc = "go to first }" })
+--
