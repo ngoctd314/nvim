@@ -7,10 +7,10 @@ return {
     opts = {},
   -- stylua: ignore
     keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      -- { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      -- { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+      -- { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
       -- { "E", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
     },
     init = function()
       require("flash").setup {
@@ -182,7 +182,8 @@ return {
           treesitter_search = {
             jump = { pos = "range" },
             search = { multi_window = true, wrap = true, incremental = false },
-            remote_op = { restore = true },
+            -- remote_op = { restore = true },
+            remote_op = { restore = true, motion = true },
             label = { before = true, after = true, style = "inline" },
           },
           -- options used for remote flash
