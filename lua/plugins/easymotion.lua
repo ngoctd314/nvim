@@ -2,7 +2,7 @@ return {
   {
     "folke/flash.nvim",
     event = "VeryLazy",
-    enabled = true,
+    enabled = false,
     ---@type Flash.Config
     opts = {},
   -- stylua: ignore
@@ -228,17 +228,17 @@ return {
       -- vim.api.nvim_set_hl(0, "FlashPromptIcon", { fg = "#89b4fa" })
     end,
   },
-  -- {
-  --   "phaazon/hop.nvim", -- easymotion
-  --   lazy = false,
-  --   enabled = true,
-  --   config = function()
-  --     require("hop").setup {
-  --       keys = "qwertyuiopasdfghjklzxcvbnm",
-  --     }
-  --
-  --     -- map navigation
-  --     vim.api.nvim_set_keymap("n", "s", "ma:HopChar1<CR>", { noremap = true })
-  --   end,
-  -- },
+  {
+    "phaazon/hop.nvim", -- easymotion
+    lazy = false,
+    enabled = true,
+    config = function()
+      require("hop").setup {
+        keys = "qwertyuiopasdfghjklzxcvbnm",
+      }
+
+      -- map navigation
+      vim.keymap.set({ "n", "v" }, "s", "ma<cmd>HopChar1<CR>")
+    end,
+  },
 }

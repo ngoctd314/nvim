@@ -211,7 +211,9 @@ map("n", "<c-j>", "<cmd>TmuxNavigateDown<cr>", { desc = "TmuxNavigateDown" })
 map("n", "<c-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "TmuxNavigateUp" })
 --   { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
 
+map("n", "]a", "`a")
+
 -- easymotion
-map({ "n", "x", "o" }, "s", "ma<cmd>lua require('flash').jump()<cr>", { desc = "Flash" })
-map({ "n", "x", "o" }, "vs", "ma<cmd>lua require('flash').treesitter_search()<cr>", { desc = "Treesitter Search" })
+-- map({ "n", "x", "o" }, "s", "ma<cmd>lua require('flash').jump()<cr>", { desc = "Flash" })
+-- map({ "n", "x", "o" }, "vs", "ma<cmd>lua require('flash').treesitter_search()<cr>", { desc = "Treesitter Search" })
 -- map("o", "r", "<cmd>lua require('flash').remote()<cr>", { desc = "Remote Flash" })
