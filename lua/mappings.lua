@@ -46,7 +46,7 @@ map("n", "<leader>ff", function()
         mirror = true,
         preview_cutoff = 120,
       },
-      width = 120,
+      width = 140,
       height = 50,
     },
   }
@@ -73,7 +73,7 @@ map("n", "<leader>fo", function()
         mirror = true,
         preview_cutoff = 120,
       },
-      width = 120,
+      width = 140,
       height = 50,
     },
     -- on_complete = {
@@ -96,7 +96,7 @@ map("n", "<leader>fb", function()
         mirror = true,
         preview_cutoff = 120,
       },
-      width = 120,
+      width = 140,
       height = 50,
     },
   }
@@ -111,7 +111,7 @@ map("n", "<leader>fz", function()
         mirror = true,
         preview_cutoff = 120,
       },
-      width = 120,
+      width = 140,
       height = 50,
     },
   }
@@ -157,7 +157,7 @@ map("n", "<leader>fh", function()
           mirror = true,
           preview_cutoff = 120,
         },
-        width = 120,
+        width = 140,
         height = 50,
       },
       sorter = conf.generic_sorter {},

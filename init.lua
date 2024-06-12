@@ -53,7 +53,7 @@ autocmd("TermOpen", {
 
 vim.schedule(function()
   require "mappings"
-  require "de-mappings"
+  require "del-mappings"
 end)
 
 require "configs.treesitter"
