@@ -5,7 +5,8 @@ local pallete = {
   normal = {
     fg = "#c6c8d1",
     -- bg = "#171521",
-    bg = "#1e2122", -- gruvbox
+    -- bg = "#1e2122", -- gruvchad
+    bg = "#191919",
     border = "#313244",
     blue = "#89b4fa",
     red = "#F38BA8",
@@ -25,7 +26,7 @@ M.ui = {
   },
   ---@type Base46HLGroupsList
   hl_override = {
-    -- Normal = { fg = pallete.normal.bg, bg = pallete.normal.bg, bold = true },
+    Normal = { bg = pallete.normal.bg, bold = true },
 
     FloatBorder = { fg = pallete.normal.border }, -- hover border
     TelescopeBorder = { fg = pallete.normal.border, bg = pallete.normal.bg },

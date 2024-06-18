@@ -123,6 +123,7 @@ return {
             nilness = true,
             unusedwrite = true,
           },
+          staticcheck = true,
         },
       },
     }
