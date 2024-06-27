@@ -46,8 +46,8 @@ map("n", "<leader>ff", function()
         mirror = true,
         preview_cutoff = 120,
       },
-      width = 140,
-      height = 50,
+      width = 164,
+      height = 0.6,
     },
   }
 end, { desc = "Find files" })
@@ -73,8 +73,8 @@ map("n", "<leader>fo", function()
         mirror = true,
         preview_cutoff = 120,
       },
-      width = 140,
-      height = 50,
+      width = 164,
+      height = 0.6,
     },
     -- on_complete = {
     --   function()
@@ -96,8 +96,8 @@ map("n", "<leader>fb", function()
         mirror = true,
         preview_cutoff = 120,
       },
-      width = 140,
-      height = 50,
+      width = 164,
+      height = 0.6,
     },
   }
 end, { desc = "Buffers" })
@@ -111,8 +111,8 @@ map("n", "<leader>fz", function()
         mirror = true,
         preview_cutoff = 120,
       },
-      width = 140,
-      height = 50,
+      width = 164,
+      height = 0.6,
     },
   }
 end, { desc = "Current buffer fuzzy" })
@@ -212,8 +212,3 @@ map("n", "<c-k>", "<cmd>TmuxNavigateUp<cr>", { desc = "TmuxNavigateUp" })
 --   { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
 
 map("n", "]a", "`a")
-
--- easymotion
--- map({ "n", "x", "o" }, "s", "ma<cmd>lua require('flash').jump()<cr>", { desc = "Flash" })
--- map({ "n", "x", "o" }, "vs", "ma<cmd>lua require('flash').treesitter_search()<cr>", { desc = "Treesitter Search" })
--- map("o", "r", "<cmd>lua require('flash').remote()<cr>", { desc = "Remote Flash" })

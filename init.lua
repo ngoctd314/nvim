@@ -48,7 +48,12 @@ autocmd("BufWinEnter", {
 
 autocmd("TermOpen", {
   pattern = "*",
-  command = "setlocal nonumber norelativenumber cursorline",
+  command = "setlocal nonumber norelativenumber cursorline nospell",
+})
+
+autocmd("FileType", {
+  pattern = "qf",
+  command = "setlocal nospell",
 })
 
 vim.schedule(function()
