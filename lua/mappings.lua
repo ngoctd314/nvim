@@ -39,9 +39,9 @@ map("n", "*", "*N", { desc = "Highlights" })
 
 map("n", "L", "<cmd>bnext<cr>", { desc = "Buffer next" })
 map("n", "H", "<cmd>bprevious<cr>", { desc = "Buffer previous" })
-map("n", "<leader>x", function()
-  require("nvchad.tabufline").close_buffer()
-end, { desc = "Close buffer" })
+-- map("n", "<leader>x", function()
+--   require("nvchad.tabufline").close_buffer()
+-- end, { desc = "Close buffer" })
 
 -- toggle comment in both modes
 map({ "n", "i" }, "<C-_>", function()
