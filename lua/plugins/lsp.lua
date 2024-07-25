@@ -31,9 +31,9 @@ local on_attach = function(_, bufnr)
   end
 end
 
-local popupFloat = {
+local popup = {
   border = "single",
-  max_width = 60,
+  max_width = 80,
   focusable = false,
   relative = "cursor",
   silent = true,
@@ -46,17 +46,33 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local client = vim.lsp.get_client_by_id(args.data.client_id)
 
     if client ~= nil and client.server_capabilities.hoverProvider then
-      vim.diagnostic.config { float = popupFloat }
+      -- vim.diagnostic.config { float = popup }
       vim.keymap.set("n", "S", vim.lsp.buf.hover, { buffer = args.buf, desc = "lsp.hover" })
       vim.keymap.set("n", "K", vim.diagnostic.open_float, { buffer = args.buf })
     end
   end,
 })
 
+local signs = {
+  Error = "E",
+  Warn = "W",
+  Hint = "H",
+  Infor = "I",
+}
+
+for type, icon in pairs(signs) do
+  local hl = "DiagnosticSign" .. type
+  vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+local error_color = "#ff2852"
+vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = error_color })
+vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = error_color })
+
 -- LSP settings (for overriding per client)
 local handlers = {
-  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, popupFloat),
-  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, popupFloat),
+  ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, popup),
+  ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, popup),
 }
 
 return {

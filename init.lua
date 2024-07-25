@@ -77,30 +77,9 @@ dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
 require "nvchad.autocmds"
+require "autocmds"
 require "treesitter"
-
-local autocmd = vim.api.nvim_create_autocmd
-autocmd("BufWinLeave", {
-  pattern = "*",
-  command = "silent! mkview",
-})
-
-autocmd("BufWinEnter", {
-  pattern = "*",
-  command = "silent! loadview",
-})
-
-autocmd("TermOpen", {
-  pattern = "*",
-  command = "setlocal nonumber norelativenumber cursorline nospell",
-})
-
-autocmd("FileType", {
-  pattern = "qf",
-  command = "setlocal nospell",
-})
 
 vim.schedule(function()
   require "mappings"
-  -- require "del-mappings"
 end)

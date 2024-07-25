@@ -183,19 +183,20 @@ map({ "n", "v" }, "<leader>ct", "<cmd>ChatGPTRun translate<cr>", { desc = "Trans
 map({ "n", "v" }, "<leader>cg", "<cmd>ChatGPTRun grammar_correction<cr>", { desc = "Grammar Correction" })
 map("v", "<leader>ci", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "Open ChatGPT edit with instruction" })
 
-map("n", "]a", "`a")
+map("n", "<leader>m", function() end, { desc = "marks" })
+map("n", "<leader>ml", "<cmd>BookmarksListAll<cr>", { desc = "MarksListAll" })
 
-map("n", "ml", "<cmd>BookmarksListAll<cr>", { desc = "MarksListAll" })
--- local marks = require "marks"
--- map("n", "ms", function()
---   marks.set_bookmark0()
--- end, { desc = "set_bookmark0" })
--- map("n", "mc", function()
+local marks = require "marks"
+map("n", "<leader>ms", function()
+  marks.set_bookmark0()
+end, { desc = "set_bookmark0" })
+map("n", "<leader>md", function()
+  marks.delete_bookmark()
+end, { desc = "delete_bookmark" })
+
+-- map("n", "<leader>md", function()
 --   marks.delete_bookmark0()
 -- end, { desc = "delete_bookmark0" })
--- map("n", "md", function()
---   marks.delete_bookmark()
--- end, { desc = "delete_bookmark" })
 -- map("n", "mD", function()
 --   marks.delete_buf()
 -- end, { desc = "delete_buf" })
