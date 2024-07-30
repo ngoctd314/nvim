@@ -16,7 +16,7 @@ return {
         edit_with_instructions = {
           -- diff = false,
           keymaps = {
-            close = "<C-x>",
+            close = "<C-c>",
             use_output_as_input = "<C-p>",
           },
         },
@@ -43,7 +43,7 @@ return {
             },
           },
           keymaps = {
-            close = "<C-x>",
+            close = "<C-c>",
           },
         },
         popup_layout = {

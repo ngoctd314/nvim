@@ -125,5 +125,15 @@ return {
       on_attach = on_attach,
       capabilities = capabilities,
     }
+
+    -- npm i -g vscode-langservers-extracted
+    lspconfig.cssls.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+    lspconfig.html.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
   end,
 }

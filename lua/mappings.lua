@@ -39,9 +39,9 @@ map("n", "*", "*N", { desc = "Highlights" })
 
 map("n", "L", "<cmd>bnext<cr>", { desc = "Buffer next" })
 map("n", "H", "<cmd>bprevious<cr>", { desc = "Buffer previous" })
--- map("n", "<leader>x", function()
---   require("nvchad.tabufline").close_buffer()
--- end, { desc = "Close buffer" })
+map("n", "<leader>x", function()
+  require("nvchad.tabufline").close_buffer()
+end, { desc = "Close buffer" })
 
 -- toggle comment in both modes
 map({ "n", "i" }, "<C-_>", function()
@@ -140,12 +140,12 @@ map("n", "gd", function()
 end, { desc = "lsp_definitions" })
 map("n", "gd", vim.lsp.buf.definition, { desc = "go to definition" })
 
+-- map("n", "gi", vim.lsp.buf.implementation, { desc = "go to implementation" })
 map("n", "gi", function()
   telescope_builtin.lsp_implementations {
     layout_strategy = "horizontal",
   }
 end, { desc = "lsp_implementations" })
-map("n", "gi", vim.lsp.buf.implementation, { desc = "go to implementation" })
 
 map("n", "gr", function()
   telescope_builtin.lsp_references {
@@ -193,10 +193,9 @@ end, { desc = "set_bookmark0" })
 map("n", "<leader>md", function()
   marks.delete_bookmark()
 end, { desc = "delete_bookmark" })
+map("n", "<leader>mD", function()
+  marks.delete_buf()
+end, { desc = "delete_buf" })
 
--- map("n", "<leader>md", function()
---   marks.delete_bookmark0()
--- end, { desc = "delete_bookmark0" })
--- map("n", "mD", function()
---   marks.delete_buf()
--- end, { desc = "delete_buf" })
+-- map("n", "j", "gj")
+-- map("n", "k", "gk")

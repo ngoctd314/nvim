@@ -35,7 +35,7 @@ M.ui = {
     NvimTreeNormal = { bg = pallete.normal.bg },
     NvimTreeNormalNC = { bg = pallete.normal.bg },
     NvimTreeWinSeparator = { fg = pallete.normal.border, bg = pallete.normal.bg },
-    -- Folded = { fg = pallete.normal.border, bg = pallete.normal.bg },
+    Folded = { fg = pallete.normal.border, bg = pallete.normal.bg },
   },
   statusline = {
     theme = "vscode", -- default/vscode/vscode_colored/minimal
