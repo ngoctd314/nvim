@@ -25,11 +25,11 @@ M.ui = {
     Normal = { bg = pallete.normal.bg, bold = false },
 
     FloatBorder = { fg = pallete.normal.border }, -- hover border
-    TelescopeBorder = { fg = pallete.normal.border, bg = pallete.normal.bg },
-    TelescopeNormal = { bg = pallete.normal.bg },
-    TelescopePromptNormal = { fg = pallete.normal.fg, bg = pallete.normal.bg },
-    TelescopePromptPrefix = { bg = pallete.normal.bg },
-    TelescopePromptBorder = { fg = pallete.normal.border, bg = pallete.normal.bg },
+    -- TelescopeBorder = { fg = pallete.normal.border, bg = pallete.normal.bg },
+    -- TelescopeNormal = { bg = pallete.normal.bg },
+    -- TelescopePromptNormal = { fg = pallete.normal.fg, bg = pallete.normal.bg },
+    -- TelescopePromptPrefix = { bg = pallete.normal.bg },
+    -- TelescopePromptBorder = { fg = pallete.normal.border, bg = pallete.normal.bg },
 
     NormalFloat = { bg = pallete.normal.bg },
     NvimTreeNormal = { bg = pallete.normal.bg },

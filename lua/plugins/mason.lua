@@ -18,14 +18,10 @@ return {
 
       "json-lsp",
       "yaml-language-server",
+
+      "sql-formatter",
+      "sqls",
       --      "jdtls",
-      --      "lemminx",
-      --      "sql-formatter",
-      --      "sqlls",
-      --      "sqls",
-      --      "buf",
-      --      "buf-language-server",
-      --      "ast-grep",
     },
   },
 }

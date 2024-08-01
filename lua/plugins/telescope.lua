@@ -24,8 +24,7 @@ local options = {
     layout_config = {
       horizontal = {
         prompt_position = "top",
-        preview_width = 0.55,
-        results_width = 0.8,
+        preview_width = 0.5,
         preview_cutoff = 140,
       },
       vertical = {
@@ -34,8 +33,16 @@ local options = {
         preview_cutoff = 120,
         -- preview_width = 0.55,
       },
-      width = 164,
-      height = 35,
+      width = function(_, max_columns)
+        local percentage = 1
+        local max = 180
+        return math.min(math.floor(percentage * max_columns), max)
+      end,
+      height = function(_, _, max_lines)
+        local percentage = 1
+        local max = 40
+        return math.min(math.floor(percentage * max_lines), max)
+      end,
     },
     file_sorter = require("telescope.sorters").get_fuzzy_file,
     file_ignore_patterns = { "node_modules", ".git" },

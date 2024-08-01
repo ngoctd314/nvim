@@ -107,31 +107,42 @@ return {
         },
       },
     }
+    lspconfig.pyright.setup {
+      handlers = handlers,
+      on_init = on_init,
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = { "py" },
+    }
+
+    -- sql
+    lspconfig.sqls.setup {
+      on_init = on_init,
+      on_attach = on_attach,
+      capabilities = capabilities,
+      cmd = { "sqls", "-config", "/home/ubuntu/.config/sqls/config.yaml" },
+      filetypes = { "sql" },
+    }
+
+    -- font end
     lspconfig.tsserver.setup {
       handlers = handlers,
       on_init = on_init,
       on_attach = on_attach,
       capabilities = capabilities,
     }
-    lspconfig.tailwindcss.setup {
-      handlers = handlers,
-      on_init = on_init,
-      on_attach = on_attach,
-      capabilities = capabilities,
-    }
-    lspconfig.pyright.setup {
-      handlers = handlers,
-      on_init = on_init,
-      on_attach = on_attach,
-      capabilities = capabilities,
-    }
-
     -- npm i -g vscode-langservers-extracted
     lspconfig.cssls.setup {
       on_attach = on_attach,
       capabilities = capabilities,
     }
     lspconfig.html.setup {
+      on_attach = on_attach,
+      capabilities = capabilities,
+    }
+    lspconfig.tailwindcss.setup {
+      handlers = handlers,
+      on_init = on_init,
       on_attach = on_attach,
       capabilities = capabilities,
     }

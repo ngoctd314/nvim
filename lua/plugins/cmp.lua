@@ -88,11 +88,10 @@ local options = {
     end, { "i", "s" }),
   },
   sources = {
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "buffer" },
-    { name = "nvim_lua" },
-    { name = "path" },
+    { name = "nvim_lsp", priority = 20 },
+    { name = "luasnip", priority = 5 },
+    { name = "buffer", priority = 10 },
+    { name = "path", priority = 5 },
   },
 }
 
