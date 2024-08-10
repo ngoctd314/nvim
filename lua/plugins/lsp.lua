@@ -112,7 +112,7 @@ return {
       on_init = on_init,
       on_attach = on_attach,
       capabilities = capabilities,
-      filetypes = { "py" },
+      filetypes = { "python" },
     }
 
     -- sql

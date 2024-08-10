@@ -1,14 +1,40 @@
 local map = vim.keymap.set
 
-map({ "n", "t" }, "<C-t>", function()
-  require("nvchad.term").toggle { pos = "sp", id = "floatTerm" }
-end, { desc = "Terminal Toggle Floating term" })
+map({ "n", "t" }, "<C-t>", "<cmd>ToggleTerm<cr>", { desc = "Terminal Toggle Floating term" })
 
-map({ "i", "t" }, "<ESC>", "<C-\\><C-n>", { desc = "Terminal normal mode" })
+function _G.set_terminal_keymaps()
+  local opts = { buffer = 0 }
+  map("t", "<esc>", [[<C-\><C-n>]], opts)
+  map("t", "<C-j>", [[<Cmd>wincmd j<CR>]], opts)
+  map("t", "<C-k>", [[<Cmd>wincmd k<CR>]], opts)
+  map("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
+end
+vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
 
-map({ "t" }, "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Move up" })
-map({ "t" }, "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Move down" })
--- map({ "t" }, "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Move right" })
--- map({ "t" }, "<C-h>", "<C-\\><C-n><C-w>h", { desc = "Move left" })
-
-return {}
+return {
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    lazy = false,
+    config = function()
+      require("toggleterm").setup {
+        open_mapping = [[<c-\>]],
+        size = function(term)
+          if term.direction == "horizontal" then
+            return 18
+          elseif term.direction == "vertical" then
+            return vim.o.columns * 0.4
+          end
+        end,
+        highlights = {
+          Normal = {
+            guibg = "#191919",
+          },
+          NormalFloat = {},
+          FloatBorder = {},
+        },
+        shade_terminals = false,
+      }
+    end,
+  },
+}

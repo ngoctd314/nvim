@@ -196,6 +196,3 @@ end, { desc = "delete_bookmark" })
 map("n", "<leader>mD", function()
   marks.delete_buf()
 end, { desc = "delete_buf" })
-
--- map("n", "j", "gj")
--- map("n", "k", "gk")
