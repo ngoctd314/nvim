@@ -11,7 +11,6 @@ local field_arrangement = {
 }
 
 local formatting_style = {
-  -- default fields order i.e completion word + item.kind + item.kind icons
   fields = field_arrangement[cmp_style] or { "abbr", "kind", "menu" },
 
   format = function(_, item)
@@ -32,8 +31,9 @@ local formatting_style = {
 }
 
 local options = {
+  preselect = cmp.PreselectMode.None,
   completion = {
-    completeopt = "menu,menuone",
+    completeopt = "menu,menuone,noselect",
   },
 
   window = {
@@ -64,10 +64,19 @@ local options = {
 
     ["<CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
+      select = false,
     },
 
     ["<C-j>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      elseif require("luasnip").expand_or_jumpable() then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
+    ["<Tab>"] = cmp.mapping(function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif require("luasnip").expand_or_jumpable() then
@@ -86,13 +95,22 @@ local options = {
         fallback()
       end
     end, { "i", "s" }),
+    ["<S-Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      elseif require("luasnip").jumpable(-1) then
+        vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
   },
   sources = {
-    { name = "copilot", priority = 25 },
-    { name = "nvim_lsp", priority = 20 },
-    { name = "buffer", priority = 10 },
-    { name = "luasnip", priority = 5 },
-    { name = "path", priority = 5 },
+    { name = "nvim_lsp", priority = 100 },
+    { name = "copilot", priority = 50 },
+    { name = "buffer", priority = 1 },
+    { name = "luasnip", priority = 1 },
+    { name = "path", priority = 1 },
     { name = "nvim_lua", priority = 1 },
   },
 }

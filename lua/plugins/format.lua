@@ -10,6 +10,13 @@ local options = {
     sql = { "sql_formatter" },
   },
 
+  formatters = {
+    sql_formatter = {
+      command = "sql-formatter",
+      args = { "-l", "mysql" },
+    },
+  },
+
   format_on_save = {
     -- These options will be passed to conform.format()
     timeout_ms = 500,

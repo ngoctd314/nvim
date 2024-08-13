@@ -4,11 +4,14 @@ require("nvim-treesitter.configs").setup {
     "go",
     "tsx",
     "javascript",
+    "typescript",
     "python",
     "markdown",
     "yaml",
     "sql",
     "json",
+    "html",
+    "css",
   },
 
   highlight = {
