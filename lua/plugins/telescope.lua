@@ -1,5 +1,8 @@
 local actions = require "telescope.actions"
 
+local themes = require "telescope.themes"
+local previewers = require "telescope.previewers"
+
 local options = {
   defaults = {
     vimgrep_arguments = {
@@ -19,7 +22,7 @@ local options = {
     selection_strategy = "reset",
     sorting_strategy = "ascending",
     layout_strategy = "horizontal",
-    -- prompt_title = "",
+    prompt_title = "",
     results_title = "",
     layout_config = {
       horizontal = {
@@ -45,7 +48,7 @@ local options = {
       end,
     },
     file_sorter = require("telescope.sorters").get_fuzzy_file,
-    file_ignore_patterns = { "node_modules", ".git" },
+    -- file_ignore_patterns = { "node_modules", ".git" },
     generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
     path_display = { "truncate" },
     winblend = 0,
@@ -53,11 +56,11 @@ local options = {
     borderchars = { "─", "│", "─", "│", "┌", "┐", "┘", "└" },
     color_devicons = true,
     set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-    file_previewer = require("telescope.previewers").vim_buffer_cat.new,
-    grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
-    qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
+    file_previewer = previewers.vim_buffer_cat.new,
+    grep_previewer = previewers.vim_buffer_vimgrep.new,
+    qflist_previewer = previewers.vim_buffer_qflist.new,
     -- Developer configurations: Not meant for general override
-    buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+    buffer_previewer_maker = previewers.buffer_previewer_maker,
     mappings = {
       n = { ["q"] = require("telescope.actions").close },
       i = {
@@ -66,8 +69,34 @@ local options = {
       },
     },
   },
+  pickers = {
+    find_files = {
+      theme = "dropdown",
+      layout_config = {
+        width = 100,
+        height = 25,
+      },
+      previewer = false,
+    },
+    oldfiles = {
+      theme = "dropdown",
+      layout_config = {
+        width = 100,
+        height = 25,
+      },
+      previewer = false,
+    },
+    current_buffer_fuzzy_find = {
+      theme = "dropdown",
+      layout_config = {
+        width = 100,
+        height = 25,
+      },
+      previewer = false,
+    },
+  },
 
-  extensions_list = { "themes", "aerial", "fzf", "media_files" },
+  extensions_list = { "themes", "aerial", "fzf", "media_files", "ui-select", "file_browser", "live_grep_args" },
   extensions = {
     fzf = {
       fuzzy = true,
@@ -76,22 +105,49 @@ local options = {
       case_mode = "smart_case",
     },
     media_files = {
-      -- filetypes whitelist
-      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
       filetypes = { "png", "webp", "jpg", "jpeg" },
-      -- find command (defaults to `fd`)
       find_cmd = "fd",
+    },
+    ["ui-select"] = {
+      themes.get_cursor {
+        initial_mode = "normal",
+      },
+    },
+    file_browser = {
+      theme = "cursor",
+      previewer = false,
+      -- disables netrw and use telescope-file-browser in its place
+      hijack_netrw = true,
+      mappings = {
+        ["i"] = {
+          -- your custom insert mode mappings
+        },
+        ["n"] = {
+          -- your custom normal mode mappings
+        },
+      },
+    },
+    live_grep_args = {
+      auto_quoting = false, -- enable/disable auto-quoting
+      -- theme = "dropdown", -- use dropdown theme
+      -- theme = { }, -- use own theme spec
     },
   },
 }
 
 return {
   "nvim-telescope/telescope.nvim",
-  lazy = true,
+  lazy = false,
   dependencies = {
     "stevearc/aerial.nvim",
     "nvim-treesitter/nvim-treesitter",
+    "nvim-telescope/telescope-ui-select.nvim",
+    "nvim-telescope/telescope-file-browser.nvim",
     "nvim-tree/nvim-web-devicons",
+    {
+      "nvim-telescope/telescope-live-grep-args.nvim",
+      version = "^1.0.0",
+    },
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     { "nvim-lua/popup.nvim", "nvim-telescope/telescope-media-files.nvim" },
   },

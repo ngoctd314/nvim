@@ -2,7 +2,7 @@ return {
   {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
-    enabled = false,
+    enabled = true,
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
@@ -17,7 +17,7 @@ return {
         edit_with_instructions = {
           -- diff = false,
           keymaps = {
-            close = "<C-c>",
+            close = "<leader>x",
             use_output_as_input = "<C-p>",
           },
         },
@@ -44,7 +44,7 @@ return {
             },
           },
           keymaps = {
-            close = "<C-c>",
+            close = "<leader>x",
           },
         },
         popup_layout = {

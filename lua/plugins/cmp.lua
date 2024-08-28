@@ -31,9 +31,10 @@ local formatting_style = {
 }
 
 local options = {
-  preselect = cmp.PreselectMode.None,
+  -- preselect = cmp.PreselectMode.None,
   completion = {
-    completeopt = "menu,menuone,noselect",
+    -- completeopt = "menu,menuone,noselect",
+    completeopt = "menu,menuone",
   },
 
   window = {
@@ -106,10 +107,10 @@ local options = {
     end, { "i", "s" }),
   },
   sources = {
-    { name = "nvim_lsp", priority = 100 },
-    { name = "copilot", priority = 50 },
-    { name = "buffer", priority = 1 },
-    { name = "luasnip", priority = 1 },
+    { name = "nvim_lsp", priority = 1000 },
+    { name = "copilot", priority = 500 },
+    { name = "buffer", priority = 300 },
+    { name = "luasnip", priority = 100 },
     { name = "path", priority = 1 },
     { name = "nvim_lua", priority = 1 },
   },

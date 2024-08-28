@@ -2,10 +2,10 @@ local pallete = {
   normal = {
     fg = "#c6c8d1",
     -- bg = "#171521",
-    bg = "#191919",
+    bg = "#191919", -- #1a1d1e
     border = "#313244",
     blue = "#89b4fa",
-    red = "#F38BA8",
+    red = "#ec6b64",
     black = "#1E1D2D",
   },
 }
@@ -17,14 +17,18 @@ M.ui = {
   theme = "gruvchad",
   ---@type Base46HLGroupsList
   hl_add = {
-    RenamerBorder = { fg = pallete.normal.blue },
-    RenamerTitle = { fg = pallete.normal.red, bg = pallete.normal.bg },
+    RenamerBorder = { fg = pallete.normal.red },
+    RenamerTitle = { bg = pallete.normal.bg, fg = pallete.normal.red },
   },
   ---@type Base46HLGroupsList
   hl_override = {
     Normal = { bg = pallete.normal.bg, bold = false },
-
     FloatBorder = { fg = pallete.normal.border }, -- hover border
+
+    TelescopePromptNormal = { fg = pallete.normal.fg, bg = "#1a1d1e" },
+    TelescopePromptPrefix = { bg = "#1a1d1e" },
+    TelescopePromptBorder = { fg = "#1a1d1e", bg = "#1a1d1e" },
+
     -- TelescopeBorder = { fg = pallete.normal.border, bg = pallete.normal.bg },
     -- TelescopeNormal = { bg = pallete.normal.bg },
     -- TelescopePromptNormal = { fg = pallete.normal.fg, bg = pallete.normal.bg },

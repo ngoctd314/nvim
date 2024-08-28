@@ -1,13 +1,13 @@
 local map = vim.keymap.set
 
-map("i", "<C-h>", "<Left>", { desc = "move left" })
-map("i", "<C-l>", "<Right>", { desc = "move right" })
-map("i", "<C-j>", "<Down>", { desc = "move down" })
-map("i", "<C-k>", "<Up>", { desc = "move up" })
-map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
-map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
-map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
-map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
+-- map("i", "<C-h>", "<Left>", { desc = "move left" })
+-- map("i", "<C-l>", "<Right>", { desc = "move right" })
+-- map("i", "<C-j>", "<Down>", { desc = "move down" })
+-- map("i", "<C-k>", "<Up>", { desc = "move up" })
+map("n", "<leader>h", "<C-w>h")
+map("n", "<leader>l", "<C-w>l")
+map("n", "<leader>j", "<C-w>j")
+map("n", "<leader>k", "<C-w>k")
 
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
 
@@ -57,27 +57,27 @@ map(
 -- telescope search
 local telescope_builtin = require "telescope.builtin"
 map("n", "<leader>f", function() end, { desc = "Telescope finds" })
+
 map("n", "<leader>ff", function()
   telescope_builtin.find_files {
     follow = true,
     no_ignore = true,
     hidden = true,
-    layout_strategy = "horizontal", -- horizontal, vertical
   }
 end, { desc = "Find files" })
 map("n", "<leader>fg", function()
-  telescope_builtin.live_grep {
+  require("telescope").extensions.live_grep_args.live_grep_args {
+    prompt_title = "Live grep",
     follow = true,
     no_ignore = true,
     hidden = true,
-    layout_strategy = "horizontal", -- horizontal, vertical
   }
 end, { desc = "Live grep" })
+
 map("n", "<leader>fo", function()
   telescope_builtin.oldfiles {
     only_cwd = true,
     mirror = false,
-    layout_strategy = "horizontal",
   }
 end, { desc = "Oldfiles" })
 map("n", "<leader>fb", function()
@@ -85,21 +85,19 @@ map("n", "<leader>fb", function()
     follow = true,
     no_ignore = true,
     hidden = true,
-    layout_strategy = "horizontal", -- horizontal, vertical
   }
 end, { desc = "Buffers" })
 map("n", "<leader>fz", function()
-  telescope_builtin.current_buffer_fuzzy_find {
-    layout_strategy = "horizontal", -- horizontal, vertical
-  }
+  telescope_builtin.current_buffer_fuzzy_find {}
 end, { desc = "Current buffer fuzzy" })
 
 map("n", "<leader>fs", function()
-  -- telescope_builtin.lsp_document_symbols { symbol_width = 60, layout_strategy = "horizontal" }
   require("telescope").extensions.aerial.aerial {
-    -- prompt_title = "",
-    symbol_width = 60,
-    layout_strategy = "horizontal",
+    layout_strategy = "vertical",
+    layout_config = {
+      width = 100,
+      height = 25,
+    },
   }
 end, { desc = "Symbols" })
 map("n", "<leader>fd", function()
@@ -107,52 +105,25 @@ map("n", "<leader>fd", function()
     sort_by = "severity",
   }
 end, { desc = "diagnostics" })
--- map("n", "<leader>fm", "<cmd>Telescope feat-marks todo<cr>", { desc = "Feat marks" })
--- map("n", "<leader>fm", function()
---   telescope_builtin.marks { symbol_width = 60, layout_strategy = "horizontal" }
--- end, { desc = "Mark" })
+map("n", "<leader>fe", function()
+  require("telescope").extensions.file_browser.file_browser()
+end)
 map("n", "<leader>ft", "<cmd>Telescope todo-comments todo<cr>", { desc = "Todo" })
--- harpoon
-map("n", "<leader>fh", function()
-  local harpoon = require "harpoon"
-  local conf = require("telescope.config").values
-  local file_paths = {}
-  for _, item in ipairs(harpoon:list().items) do
-    table.insert(file_paths, item.value)
-  end
 
-  require("telescope.pickers")
-    .new({}, {
-      prompt_title = "Harpoon",
-      finder = require("telescope.finders").new_table {
-        results = file_paths,
-      },
-      layout_strategy = "vertical", -- horizontal, vertical
-      sorter = conf.generic_sorter {},
-    })
-    :find()
-  -- end
-end, { desc = "Open harpoon window" })
+-- map("n", "gd", vim.lsp.buf.definition, { desc = "go to definition" })
+-- map("n", "gi", vim.lsp.buf.implementation, { desc = "go to implementation" })
+-- map("n", "gr", vim.lsp.buf.references, { desc = "show references" })
 
 -- telescope navigate
 map("n", "gd", function()
-  telescope_builtin.lsp_definitions { layout_strategy = "horizontal" }
+  telescope_builtin.lsp_definitions {}
 end, { desc = "lsp_definitions" })
-map("n", "gd", vim.lsp.buf.definition, { desc = "go to definition" })
-
--- map("n", "gi", vim.lsp.buf.implementation, { desc = "go to implementation" })
 map("n", "gi", function()
-  telescope_builtin.lsp_implementations {
-    layout_strategy = "horizontal",
-  }
+  telescope_builtin.lsp_implementations {}
 end, { desc = "lsp_implementations" })
-
 map("n", "gr", function()
-  telescope_builtin.lsp_references {
-    layout_strategy = "horizontal",
-  }
+  telescope_builtin.lsp_references {}
 end, { desc = "lsp_references" })
--- map("n", "gr", vim.lsp.buf.references, { desc = "show references" })
 
 -- diagnostic
 map("n", "[d", function()
@@ -173,7 +144,8 @@ map("n", "<leader>gs", "<cmd>Gitsigns toggle_signs<cr>", { desc = "Gitsigns togg
 -- re
 map("n", "<leader>r", function() end, { desc = "re" })
 map("n", "<leader>rn", function()
-  vim.lsp.buf.rename()
+  -- vim.lsp.buf.rename()
+  require "util.renamer"()
 end, { desc = "rename" })
 
 -- chat gpt
@@ -196,3 +168,8 @@ end, { desc = "delete_bookmark" })
 map("n", "<leader>mD", function()
   marks.delete_buf()
 end, { desc = "delete_buf" })
+
+-- tabs
+map({ "n" }, "<C-n>", "<cmd>tabnext<cr>i", { desc = "tabnext" })
+map({ "i" }, "<C-n>", "<C-o>:tabnext<CR>", { noremap = true, silent = true })
+map({ "t" }, "<C-n>", "<C-\\><C-n>:tabnext<CR>", { noremap = true, silent = true })
