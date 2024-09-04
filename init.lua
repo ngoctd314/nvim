@@ -25,9 +25,10 @@ require("lazy").setup({
 
   { import = "plugins" },
 }, {
-  -- defaults = { lazy = true },
   install = { colorscheme = { "nvchad" } },
 })
+
+local delmap = vim.keymap.del
 
 -- load theme
 dofile(vim.g.base46_cache .. "defaults")

@@ -1,7 +1,6 @@
 local function attach(bufnr)
   local api = require "nvim-tree.api"
 
-  -- default mappings
   api.config.mappings.default_on_attach(bufnr)
 end
 

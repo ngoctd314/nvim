@@ -22,6 +22,7 @@ capabilities.textDocument.completion.completionItem = {
     },
   },
 }
+
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
@@ -47,7 +48,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     if client ~= nil and client.server_capabilities.hoverProvider then
       -- vim.diagnostic.config { float = popup }
-      vim.keymap.set("n", "S", vim.lsp.buf.hover, { buffer = args.buf, desc = "lsp.hover" })
+      vim.keymap.set("n", "S", vim.lsp.buf.hover, { buffer = args.buf })
       vim.keymap.set("n", "K", vim.diagnostic.open_float, { buffer = args.buf })
     end
   end,
@@ -64,10 +65,6 @@ for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end
-
-local error_color = "#ff2852"
-vim.api.nvim_set_hl(0, "DiagnosticSignError", { fg = error_color })
-vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { fg = error_color })
 
 -- LSP settings (for overriding per client)
 local handlers = {
@@ -124,7 +121,7 @@ return {
       filetypes = { "sql" },
     }
 
-    -- font end
+    -- front end
     lspconfig.tsserver.setup {
       handlers = handlers,
       on_init = on_init,

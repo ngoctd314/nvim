@@ -1,13 +1,12 @@
 local pallete = {
-  normal = {
-    fg = "#c6c8d1",
-    -- bg = "#171521",
-    bg = "#191919", -- #1a1d1e
-    border = "#313244",
-    blue = "#89b4fa",
-    red = "#ec6b64",
-    black = "#1E1D2D",
-  },
+  fg = "#c6c8d1",
+  bg500 = "#191919",
+  bg400 = "#1e1e1e",
+  bg300 = "#222222",
+  -- bg300 = "#292929",
+  border = "#313244",
+  red500 = "#ec6b64",
+  red600 = "#ff2852",
 }
 
 ---@type ChadrcConfig
@@ -17,29 +16,36 @@ M.ui = {
   theme = "gruvchad",
   ---@type Base46HLGroupsList
   hl_add = {
-    RenamerBorder = { fg = pallete.normal.red },
-    RenamerTitle = { bg = pallete.normal.bg, fg = pallete.normal.red },
+    RenamerBorder = { fg = pallete.bg300, bg = pallete.bg300 },
+    RenamerTitle = { bg = pallete.bg300, fg = pallete.red500 },
+    DapBreakpoint = { fg = pallete.red500 },
+    DapLogPoint = { fg = "#61afef" },
+    DapStopped = { fg = "#98c379" },
+    DiagnosticSignError = { fg = pallete.red500 },
+    DiagnosticError = { fg = pallete.red500 },
+    DiagnosDiagnosticSignError = { fg = pallete.red600 },
   },
   ---@type Base46HLGroupsList
   hl_override = {
-    Normal = { bg = pallete.normal.bg, bold = false },
-    FloatBorder = { fg = pallete.normal.border }, -- hover border
+    Normal = { bg = pallete.bg500, bold = false },
+    WinSeparator = { fg = pallete.bg400, bg = pallete.bg400 },
+    FloatBorder = { fg = pallete.bg300, bg = pallete.bg300 },
+    NormalFloat = { bg = pallete.bg300 },
+    CmpDoc = { bg = pallete.bg300 },
+    CmpPmenu = { bg = pallete.bg300 },
+    QuickFixLine = { bg = pallete.bg500 },
 
-    TelescopePromptNormal = { fg = pallete.normal.fg, bg = "#1a1d1e" },
-    TelescopePromptPrefix = { bg = "#1a1d1e" },
-    TelescopePromptBorder = { fg = "#1a1d1e", bg = "#1a1d1e" },
+    TelescopePromptNormal = { fg = pallete.fg, bg = pallete.bg400 },
+    TelescopePromptPrefix = { bg = pallete.bg400 },
+    TelescopePromptBorder = { fg = pallete.bg400, bg = pallete.bg400 },
+    TelescopeNormal = { bg = pallete.bg400 },
+    TelescopeBorder = { fg = pallete.bg400, bg = pallete.bg400 },
 
-    -- TelescopeBorder = { fg = pallete.normal.border, bg = pallete.normal.bg },
-    -- TelescopeNormal = { bg = pallete.normal.bg },
-    -- TelescopePromptNormal = { fg = pallete.normal.fg, bg = pallete.normal.bg },
-    -- TelescopePromptPrefix = { bg = pallete.normal.bg },
-    -- TelescopePromptBorder = { fg = pallete.normal.border, bg = pallete.normal.bg },
+    NvimTreeNormal = { bg = pallete.bg400 },
+    NvimTreeNormalNC = { bg = pallete.bg400 },
+    NvimTreeWinSeparator = { bg = pallete.bg400, fg = pallete.bg400 },
 
-    NormalFloat = { bg = pallete.normal.bg },
-    NvimTreeNormal = { bg = pallete.normal.bg },
-    NvimTreeNormalNC = { bg = pallete.normal.bg },
-    NvimTreeWinSeparator = { fg = pallete.normal.border, bg = pallete.normal.bg },
-    Folded = { fg = pallete.normal.border, bg = pallete.normal.bg },
+    Folded = { fg = pallete.border, bg = pallete.bg500 },
   },
   statusline = {
     theme = "vscode", -- default/vscode/vscode_colored/minimal

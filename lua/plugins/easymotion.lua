@@ -2,7 +2,6 @@ return {
   {
     "phaazon/hop.nvim", -- easymotion
     lazy = false,
-    enabled = true,
     config = function()
       require("hop").setup {
         keys = "qwertyuiopasdfghjklzxcvbnm",

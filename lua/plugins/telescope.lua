@@ -48,7 +48,7 @@ local options = {
       end,
     },
     file_sorter = require("telescope.sorters").get_fuzzy_file,
-    -- file_ignore_patterns = { "node_modules", ".git" },
+    file_ignore_patterns = { "node_modules", ".git" },
     generic_sorter = require("telescope.sorters").get_generic_fuzzy_sorter,
     path_display = { "truncate" },
     winblend = 0,
@@ -86,14 +86,6 @@ local options = {
       },
       previewer = false,
     },
-    current_buffer_fuzzy_find = {
-      theme = "dropdown",
-      layout_config = {
-        width = 100,
-        height = 25,
-      },
-      previewer = false,
-    },
   },
 
   extensions_list = { "themes", "aerial", "fzf", "media_files", "ui-select", "file_browser", "live_grep_args" },
@@ -114,7 +106,7 @@ local options = {
       },
     },
     file_browser = {
-      theme = "cursor",
+      theme = "dropdown",
       previewer = false,
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,

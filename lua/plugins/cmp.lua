@@ -107,12 +107,13 @@ local options = {
     end, { "i", "s" }),
   },
   sources = {
-    { name = "nvim_lsp", priority = 1000 },
-    { name = "copilot", priority = 500 },
-    { name = "buffer", priority = 300 },
-    { name = "luasnip", priority = 100 },
-    { name = "path", priority = 1 },
-    { name = "nvim_lua", priority = 1 },
+    { name = "nvim_lsp" },
+    { name = "copilot" },
+    { name = "buffer" },
+    { name = "luasnip" },
+    { name = "path" },
+    { name = "nvim_lua" },
+    { name = "lazydev" },
   },
 }
 

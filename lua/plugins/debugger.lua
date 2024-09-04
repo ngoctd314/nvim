@@ -3,7 +3,7 @@ local map = vim.keymap.set
 local function get_arguments()
   return coroutine.create(function(dap_run_co)
     local args = {}
-    vim.ui.input({ prompt = "Args: " }, function(input)
+    vim.ui.input({ prompt = "args: " }, function(input)
       args = vim.split(input or "", " ")
       coroutine.resume(dap_run_co, args)
     end)
@@ -67,7 +67,8 @@ return {
                 size = 0.25,
               },
               {
-                id = "watches",
+                -- id = "watches",
+                id = "repl",
                 size = 0.25,
               },
             },
@@ -117,13 +118,12 @@ return {
         dapui.close()
       end
       dap.configurations.go = {
-        -- works with go.mod packages and sub packages
         {
           type = "go",
-          name = "Debug test (go.mod)",
+          name = "Debug Package",
           request = "launch",
-          mode = "test",
-          program = "./${relativeFileDirname}",
+          program = "${fileDirname}",
+          -- buildFlags = configs.delve.build_flags,
         },
         {
           type = "go",
@@ -132,6 +132,13 @@ return {
           program = "${fileDirname}",
           args = get_arguments,
           -- buildFlags = configs.delve.build_flags,
+        },
+        {
+          type = "go",
+          name = "Debug test (go.mod)",
+          request = "launch",
+          mode = "test",
+          program = "./${relativeFileDirname}",
         },
       }
 
@@ -152,10 +159,6 @@ return {
       -- map("n", "<leader>dfw", function()
       --   dapui.float_element("watches", { enter = true })
       -- end, { desc = "watches" })
-
-      vim.api.nvim_set_hl(0, "DapBreakpoint", { fg = "#FF0000" })
-      vim.api.nvim_set_hl(0, "DapLogPoint", { fg = "#61afef" })
-      vim.api.nvim_set_hl(0, "DapStopped", { fg = "#98c379" })
 
       vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint" })
       vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DapBreakpoint" })
