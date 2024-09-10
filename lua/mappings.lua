@@ -1,13 +1,15 @@
 local map = vim.keymap.set
 
-map("n", "<C-h>", "<C-w>h")
-map("n", "<C-l>", "<C-w>l")
-map("n", "<C-j>", "<C-w>j")
-map("n", "<C-k>", "<C-w>k")
+map("n", "<leader>h", "<C-w>h")
+map("n", "<leader>l", "<C-w>l")
+map("n", "<leader>j", "<C-w>j")
+map("n", "<leader>k", "<C-w>k")
 map("n", "<leader>s", function() end, { desc = "Surrounding" })
 
-map("n", "U", "<cmd>redo<cr>", { desc = "Redo" })
+-- yank
+map("n", "<leader>yf", "yt{", { desc = "Yank function" })
 
+map("n", "U", "<cmd>redo<cr>", { desc = "Redo" })
 map("n", "P", "<cmd>b#<cr>", { desc = "Switch oldfiles" })
 
 map("n", "<leader>q", function()
@@ -22,17 +24,6 @@ map("n", "H", "<cmd>bprevious<cr>", { desc = "Buffer previous" })
 map("n", "<leader>x", function()
   require("nvchad.tabufline").close_buffer()
 end, { desc = "Close buffer" })
-
--- toggle comment in both modes
--- map({ "n", "i" }, "<C-_>", function()
---   require("Comment.api").toggle.linewise.current()
--- end, { desc = "Toggle comment" })
--- map(
---   "v",
---   "<C-_>",
---   "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
---   { desc = "Toggle comment" }
--- )
 
 -- telescope search
 local telescope_builtin = require "telescope.builtin"
@@ -79,7 +70,11 @@ map("n", "<leader>fd", function()
   }
 end, { desc = "diagnostics" })
 map("n", "<leader>fe", function()
-  require("telescope").extensions.file_browser.file_browser()
+  require("telescope").extensions.file_browser.file_browser {
+    path = "%:p:h",
+    select_buffer = true,
+    initial_mode = "normal",
+  }
 end)
 map("n", "<leader>ft", "<cmd>Telescope todo-comments todo<cr>", { desc = "Todo" })
 
@@ -111,12 +106,14 @@ end, { desc = "diagnostic.goto_next" })
 -- nvimtree
 map("n", "<leader>e", "<cmd>NvimTreeToggle<cr>", { desc = "Toggle nvimtree" })
 
--- git
-map("n", "<leader>g", function() end, { desc = "Git" })
-map("n", "<leader>gb", "<cmd>Gitsigns blame_line<cr>", { desc = "Gitsigns blame_line" })
-map("n", "<leader>gs", "<cmd>Gitsigns toggle_signs<cr>", { desc = "Gitsigns toggle_signs" })
-
--- re
+-- refactor
+map("n", "<leader>r", "", { desc = "refactor" })
+map("n", "<leader>rr", function()
+  require("grug-far").open()
+  vim.cmd [[setlocal nospell]]
+end, {
+  desc = "Replace",
+})
 map("n", "<leader>rn", function()
   local currName = vim.fn.expand "<cword>" .. " "
 
@@ -147,14 +144,12 @@ map("n", "<leader>rn", function()
     end
     vim.cmd.stopinsert()
   end, { buffer = 0 })
-end, { desc = "rename" })
+end, { desc = "Rename" })
 
 -- chat gpt
 map("n", "<leader>c", function() end, { desc = "chatgpt, search" })
 map("n", "<leader>cp", "<cmd>ChatGPT<cr>", { desc = "Open ChatGPT" })
-map({ "n", "v" }, "<leader>ct", "<cmd>ChatGPTRun translate<cr>", { desc = "Translate" })
 map({ "n", "v" }, "<leader>cg", "<cmd>ChatGPTRun grammar_correction<cr>", { desc = "Grammar Correction" })
-map("v", "<leader>ci", "<cmd>ChatGPTEditWithInstructions<cr>", { desc = "Open ChatGPT edit with instruction" })
 
 map("n", "<leader>m", function() end, { desc = "marks" })
 map("n", "<leader>ml", "<cmd>BookmarksListAll<cr>", { desc = "MarksListAll" })
@@ -168,8 +163,3 @@ end, { desc = "delete_bookmark" })
 map("n", "<leader>mD", function()
   marks.delete_buf()
 end, { desc = "delete_buf" })
-
--- tabs
-map({ "n" }, "<C-n>", "<cmd>tabnext<cr>i", { desc = "tabnext" })
-map({ "i" }, "<C-n>", "<C-o>:tabnext<CR>", { noremap = true, silent = true })
-map({ "t" }, "<C-n>", "<C-\\><C-n>:tabnext<CR>", { noremap = true, silent = true })

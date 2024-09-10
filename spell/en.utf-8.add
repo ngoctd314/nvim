@@ -249,3 +249,7 @@ const
 const
 const
 availableFilter
+virtualized
+hypervisor
+ESXi
+KVM

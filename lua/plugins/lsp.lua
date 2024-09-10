@@ -122,7 +122,7 @@ return {
     }
 
     -- front end
-    lspconfig.tsserver.setup {
+    lspconfig.ts_ls.setup {
       handlers = handlers,
       on_init = on_init,
       on_attach = on_attach,

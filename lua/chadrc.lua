@@ -7,6 +7,7 @@ local pallete = {
   border = "#313244",
   red500 = "#ec6b64",
   red600 = "#ff2852",
+  blue500 = "#6d8dad",
 }
 
 ---@type ChadrcConfig
@@ -17,20 +18,22 @@ M.ui = {
   ---@type Base46HLGroupsList
   hl_add = {
     RenamerBorder = { fg = pallete.bg300, bg = pallete.bg300 },
-    RenamerTitle = { bg = pallete.bg300, fg = pallete.red500 },
+    RenamerTitle = { bg = pallete.bg400, fg = pallete.blue500 },
     DapBreakpoint = { fg = pallete.red500 },
-    DapLogPoint = { fg = "#61afef" },
+    DapLogPoint = { fg = pallete.blue500 },
     DapStopped = { fg = "#98c379" },
     DiagnosticSignError = { fg = pallete.red500 },
     DiagnosticError = { fg = pallete.red500 },
     DiagnosDiagnosticSignError = { fg = pallete.red600 },
+    FoldColumn = { fg = pallete.border, bg = pallete.bg500 },
   },
   ---@type Base46HLGroupsList
   hl_override = {
     Normal = { bg = pallete.bg500, bold = false },
     WinSeparator = { fg = pallete.bg400, bg = pallete.bg400 },
     FloatBorder = { fg = pallete.bg300, bg = pallete.bg300 },
-    NormalFloat = { bg = pallete.bg300 },
+    FloatTitle = { fg = pallete.blue500, bg = pallete.bg300 },
+    NormalFloat = { bg = pallete.bg300, fg = pallete.red500 },
     CmpDoc = { bg = pallete.bg300 },
     CmpPmenu = { bg = pallete.bg300 },
     QuickFixLine = { bg = pallete.bg500 },
