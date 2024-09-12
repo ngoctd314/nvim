@@ -4,9 +4,10 @@ return {
     config = function()
       require("grug-far").setup {
         keymaps = {
-          syncLine = { n = "<localleader>l" },
-          refresh = { n = "<localleader>f" },
+          syncLine = { n = "r" },
           openLocation = { n = "<localleader>o" },
+          refresh = { n = "<localleader>f" },
+
           openNextLocation = { n = "<down>" },
           openPrevLocation = { n = "<up>" },
           gotoLocation = { n = "<enter>" },

@@ -6,6 +6,5 @@ return {
   lazy = false,
   init = function()
     require("todo-comments").setup {}
-    -- require("feat-marks").setup {}
   end,
 }
